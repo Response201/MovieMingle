@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "title": "Spiderman",
+        "description": "A young man gains spider-like abilities and fights crime as a superhero.",
+        "length": 120,
+        "image": "https://i.ibb.co/BC0jpwq/1.png",
+        "price": 125,
+        "genre": ["Action", "Adventure", "Superhero"]
+    },
+    {
+        "id": 2,
+        "title": "Black Moon",
+        "description": "A mysterious event under the dark night sky changes the course of humanity.",
+        "length": 135,
+        "image": "https://i.ibb.co/sqvS4Gr/2.png",
+        "price": 125,
+        "genre": ["Sci-Fi", "Thriller"]
+    },
+    {
+        "id": 3,
+        "title": "Echoes of Fear",
+        "description": "A haunted house reveals its dark secrets to a young couple.",
+        "length": 110,
+        "image": "https://i.ibb.co/xMLMjhv/3.png",
+        "price": 125,
+        "genre": ["Horror", "Mystery"]
+    },
+    {
+        "id": 4,
+        "title": "Forever Yours",
+        "description": "A timeless love story that transcends lifetimes.",
+        "length": 125,
+        "image": "https://i.ibb.co/4RBkMxz/4.png",
+        "price": 125,
+        "genre": ["Romance", "Drama"]
+    },
+    {
+        "id": 5,
+        "title": "Rogue Protocol",
+        "description": "An ex-agent goes rogue to uncover a conspiracy within the government.",
+        "length": 130,
+        "image": "https://i.ibb.co/5smP3BH/5.png",
+        "price": 125,
+        "genre": ["Action", "Thriller"]
+    },
+    {
+        "id": 6,
+        "title": "Midnight Justice",
+        "description": "A vigilante takes on the city's underworld by night.",
+        "length": 118,
+        "image": "https://i.ibb.co/VWgqMPJ/6.png",
+        "price": 125,
+        "genre": ["Action", "Crime"]
+    },
+    {
+        "id": 7,
+        "title": "Broken Dreams",
+        "description": "A heartfelt journey of overcoming obstacles and finding hope.",
+        "length": 112,
+        "image": "https://i.ibb.co/1r4ZWHr/7.png",
+        "price": 125,
+        "genre": ["Drama", "Romance"]
+    },
+    {
+        "id": 8,
+        "title": "The Great Mix-Up",
+        "description": "A hilarious tale of mistaken identities and comedic chaos.",
+        "length": 105,
+        "image": "https://i.ibb.co/b2df3b8/8.png",
+        "price": 125,
+        "genre": ["Comedy"]
+    },
+    {
+        "id": 9,
+        "title": "The Secret World of Whimsy",
+        "description": "An animated adventure into a world of fantasy and imagination.",
+        "length": 95,
+        "image": "https://i.ibb.co/MNL3gNc/9.png",
+        "price": 125,
+        "genre": ["Animation", "Family", "Fantasy"]
+    },
+    {
+        "id": 10,
+        "title": "The Sky's the Limit",
+        "description": "A group of friends embarks on an epic journey to the skies.",
+        "length": 122,
+        "image": "https://i.ibb.co/0Q4v9WJ/10.png",
+        "price": 125,
+        "genre": ["Adventure", "Drama"]
+    },
+    {
+        "id": 11,
+        "title": "The Lost Kingdom",
+        "description": "An ancient kingdom is discovered, revealing secrets of the past.",
+        "length": 140,
+        "image": "https://i.ibb.co/myj1YwG/11.png",
+        "price": 125,
+        "genre": ["Adventure", "Fantasy"]
+    },
+    {
+        "id": 12,
+        "title": "The Adventure Club",
+        "description": "A group of kids uncovers hidden treasures in their neighborhood.",
+        "length": 100,
+        "image": "https://i.ibb.co/DDR9nFm/12.png",
+        "price": 125,
+        "genre": ["Family", "Adventure"]
+    },
+    {
+        "id": 13,
+        "title": "Dreadful Dreams",
+        "description": "A series of nightmares blurs the line between dream and reality.",
+        "length": 108,
+        "image": "https://i.ibb.co/1rLX4vP/13.png",
+        "price": 125,
+        "genre": ["Horror", "Thriller"]
+    },
+    {
+        "id": 14,
+        "title": "Bacwat",
+        "description": "An indie film exploring the intricacies of human relationships in a small town.",
+        "length": 115,
+        "image": "https://i.ibb.co/hgGsHpC/14.png",
+        "price": 125,
+        "genre": ["Drama", "Indie"]
+    }
+]

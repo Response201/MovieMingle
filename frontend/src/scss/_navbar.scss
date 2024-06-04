@@ -1,0 +1,16 @@
+@use "variables" as v;
+.navbarContainer{
+height: 100%;
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 2rem;
+
+a{
+    all: unset;
+font-weight: 800;
+color: v.$text-color-ligth;
+
+}
+}
