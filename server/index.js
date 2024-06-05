@@ -14,7 +14,22 @@ app.get('/', (req, res) => {
 
 
 app.get('/all', (req, res) => {
-    res.send(movies);
+   
+    const page = parseInt(req.query.page) || 1;
+    const pageSize = parseInt(req.query.pageSize) || 5;
+    
+    // Calculate the start and end indexes for the requested page
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = page * pageSize;
+    
+    // Slice the products array based on the indexes
+    const paginatedMovies = movies.slice(startIndex, endIndex);
+    
+    // Calculate the total number of pages
+    const totalPages = Math.ceil(movies.length / pageSize);
+    
+
+    res.send({movies:paginatedMovies, totalPages});
 });
 
 

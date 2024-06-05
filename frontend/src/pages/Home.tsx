@@ -1,32 +1,53 @@
-
 import { useGlobalContext } from "../contexts/GlobalContext";
-import axios from "axios";
-import { Movie } from "../model/movie";
-
-export const Home = () => {
+import { useEffect, useState } from "react";
+import { FetchMovies } from "../functions/FetchMovies";
+export const Home =  () => {
 	/* Global Context => variablar går att nå i hela appen vid denna typ av import */
-	const {  allMovies, setAllMovies } = useGlobalContext();
+	const { allMovies, totalPage, setAllMovies, setTotalPage } = useGlobalContext();
+	const [currentPage, setCurrentPage] = useState(1);
+	const [size, setSize] = useState(5);
+
+	
+    const fetchMoviesData = async (page: number, size: number) => {
+        const { movies, totalPages } = await FetchMovies(page, size);
+        setAllMovies(movies);
+        setTotalPage(totalPages);
+    };
+
+	/* make new fetch when page changes */
+	useEffect(() => {
+		fetchMoviesData(currentPage, size);
+	}, [currentPage, size]);
 
 
+	const handlePrevPage = () => {
+		if (currentPage > 1) {
+			setCurrentPage(currentPage - 1);
+		}
+	};
 
-	if (allMovies.length <= 0) {
-		axios
-			.get<Movie[]>("http://localhost:3000/all")
-			.then(function (response) {
-				setAllMovies(response.data);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-	}
+	const handleNextPage = () => {
+		if (currentPage < totalPage) {
+			setCurrentPage(currentPage + 1);
+		}
+	};
 
 	return (
 		<>
 			<h1>Home!</h1>
+			<button onClick={()=>setSize(3)}> 3 </button><button onClick={()=>setSize(5)}> 5 </button><button onClick={()=>setSize(8)}> 8 </button>
+			{allMovies.map((movie) => (
+				<div key={movie.id}>{movie.title}</div>
+			))}
 
-			{allMovies.map((item) => {
-				return <p key={item.id}>{item.title}</p>;
-			})}
+			<button onClick={handlePrevPage} disabled={currentPage === 1}>
+				Previous Page
+			</button>
+			<button onClick={handleNextPage} disabled={currentPage === totalPage}>
+				Next Page
+			</button>
+
+			<p> {currentPage}/{totalPage}</p>
 		</>
 	);
 };

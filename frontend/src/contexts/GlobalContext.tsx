@@ -6,7 +6,8 @@ interface ReservevationData {
 	setCartItems: Dispatch<SetStateAction<Movie[]>>;
 	allMovies:Movie[]; 
 	setAllMovies:Dispatch<SetStateAction<Movie[]>>;
-
+	totalPage:number; 
+	setTotalPage:Dispatch<SetStateAction<number>>;
 }
 interface Props {
 	children: ReactNode;
@@ -15,6 +16,7 @@ export const GlobalContext = createContext<ReservevationData | undefined>(undefi
 export const GlobalProvider = ({ children }: Props) => {
 	const [cartItems, setCartItems] = useState<Movie[]>(JSON.parse(localStorage.getItem("cart") || "[]"));
 const [allMovies, setAllMovies] = useState<Movie[]>([])
+const [totalPage, setTotalPage] = useState(0);
 
 	return (
 		<GlobalContext.Provider
@@ -22,7 +24,7 @@ const [allMovies, setAllMovies] = useState<Movie[]>([])
 				cartItems,
 				setCartItems,
 				allMovies, 
-				setAllMovies
+				setAllMovies, totalPage, setTotalPage
 			}}
 		>
 			{children}
