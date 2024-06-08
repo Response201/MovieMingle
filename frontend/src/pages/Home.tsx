@@ -2,6 +2,7 @@
 import { useGlobalContext } from "../contexts/GlobalContext";
 import axios from "axios";
 import { Movie } from "../model/movie";
+import '../scss/_home.scss';
 
 export const Home = () => {
 	/* Global Context => variablar går att nå i hela appen vid denna typ av import */
@@ -21,12 +22,14 @@ export const Home = () => {
 	}
 
 	return (
-		<>
-			<h1>Home!</h1>
+		<> 
+
 
 			{allMovies.map((item) => {
 				return <p key={item.id}>{item.title}</p>;
 			})}
+			
+		
 		</>
 	);
 };
