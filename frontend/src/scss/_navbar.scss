@@ -1,16 +1,69 @@
 @use "variables" as v;
-.navbarContainer{
-height: 100%;
-width: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 0 2rem;
 
-a{
-    all: unset;
-font-weight: 800;
-color: v.$text-color-ligth;
 
-}
-}
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); 
+    padding: 10px 20px;
+    width: 100%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+  
+    &__brand {
+        width: 15%;
+      a {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        
+        background: linear-gradient(45deg, blue,purple, hotpink, red);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+      }
+    }
+  
+    &__links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+  
+    &__item {
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight:100;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    &__button {
+      background-color: #ff4e50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      
+  
+      &:hover {
+        background-color: #f9d423;
+      }
+    }
+    &__container {
+        margin-left:10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  

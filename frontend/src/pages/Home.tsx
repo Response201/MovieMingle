@@ -1,7 +1,15 @@
 import { useGlobalContext } from "../contexts/GlobalContext";
+
+import axios from "axios";
+import { Movie } from "../model/movie";
+import '../scss/_home.scss';
+
+export const Home = () => {
+
 import { useEffect, useState } from "react";
 import { FetchMovies } from "../functions/FetchMovies";
 export const Home =  () => {
+
 	/* Global Context => variablar går att nå i hela appen vid denna typ av import */
 	const { allMovies, totalPage, setAllMovies, setTotalPage } = useGlobalContext();
 	const [currentPage, setCurrentPage] = useState(1);
@@ -33,6 +41,16 @@ export const Home =  () => {
 	};
 
 	return (
+
+		<> 
+
+
+			{allMovies.map((item) => {
+				return <p key={item.id}>{item.title}</p>;
+			})}
+			
+		
+
 		<>
 			<h1>Home!</h1>
 			<button onClick={()=>setSize(3)}> 3 </button><button onClick={()=>setSize(5)}> 5 </button><button onClick={()=>setSize(8)}> 8 </button>
@@ -48,6 +66,7 @@ export const Home =  () => {
 			</button>
 
 			<p> {currentPage}/{totalPage}</p>
+
 		</>
 	);
 };
