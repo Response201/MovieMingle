@@ -3,7 +3,7 @@ import { Layout } from "./pages/Layout";
 import { NotFound } from "./pages/NotFound";
 import { Home } from "./pages/Home";
 import { Movies } from "./pages/Movies";
-import { Movie } from "./pages/Movie";
+import { OneMovie } from "./pages/OneMovie";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/movie/:movieId",
-        element: <Movie />,
+        element: <OneMovie />,
         index: true,
       },
     ],
