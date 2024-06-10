@@ -40,11 +40,11 @@ body::-webkit-scrollbar {
 
 header {
   width: 100%;
-  
+  background-color: black;
   min-height: 25px;
   display: flex;
 
-  background-color: v.$secondary;
+
 
 
 }
@@ -55,7 +55,7 @@ header {
 main {
 width: 100%;
 height: 90vh;
-background-color: v.$primary;
+
 min-height: 350px;
 padding: 0;
 margin: 0;

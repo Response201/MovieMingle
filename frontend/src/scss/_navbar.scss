@@ -5,11 +5,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-color: black;
+    
     padding: 10px 20px;
     width: 100%;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   
+    z-index: 1;
   
     &__brand {
         width: 15%;
@@ -31,6 +32,7 @@
       gap: 15px;
       margin: 0;
       padding: 0;
+     
     }
   
     &__item {
@@ -46,6 +48,8 @@
     }
   
     &__button {
+      position: relative;
+      right:5%;
       background-color: #ff4e50;
       color: white;
       border: none;
@@ -54,9 +58,7 @@
       font-size: 16px;
       
   
-      &:hover {
-        background-color: #f9d423;
-      }
+  
     }
     &__container {
         margin-left:10%;

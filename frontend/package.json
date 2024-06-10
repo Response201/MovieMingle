@@ -12,19 +12,12 @@
   "dependencies": {
     "@types/google.accounts": "^0.0.14",
     "axios": "^1.7.2",
-
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.1",
-  
-
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1"
-
   },
   "devDependencies": {
     "@types/google-one-tap": "^1.2.6",
