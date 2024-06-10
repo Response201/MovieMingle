@@ -1,12 +1,9 @@
-import React from 'react'
-
+import React from "react";
 
 export const Movies = () => {
-    return (	
+  return (
     <>
-        <h1>All Movies!</h1>
-      </>
-      )
-}
-
-
+      <h1>All Movies!</h1>
+    </>
+  );
+};

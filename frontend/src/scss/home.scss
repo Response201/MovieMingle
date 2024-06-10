@@ -1,0 +1,15 @@
+.movies {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 10px;
+
+  .movie {
+    width: 40%;
+
+    &__image {
+      width: 100%;
+    }
+  }
+}
