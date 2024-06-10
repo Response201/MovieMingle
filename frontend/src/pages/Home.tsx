@@ -45,25 +45,63 @@ export const Home = () => {
 
   return (
     <>
-      <h1>Home!</h1>
-      <button onClick={() => setSize(3)}> 3 </button>
-      <button onClick={() => setSize(5)}> 5 </button>
-      <button onClick={() => setSize(8)}> 8 </button>
-      {allMovies.map((movie) => (
-        <div key={movie.id}>{movie.title}</div>
-      ))}
+      <div className="home-wrapper">
+        <div className="video-container">
+          <video className="video-container__video" autoPlay muted loop>
+            <source
+              src="/video/ssvid.net - Running Up That Hill Vol 2 Scene  Stranger Things 4.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+          <div className="video-container__content">
+            <div className="video-container__title">Stranger Things</div>
+            <div className="video-container__description">
+              The story begins with the mysterious disappearance of a young boy
+              named Will Byers. As his friends and family search for him, they
+              encounter a strange girl with supernatural abilities who goes by
+              the name Eleven. She has escaped from a secret government
+              laboratory and reveals the existence of a parallel dimension
+              called the Upside Down, which is inhabited by terrifying
+              creatures. As the series progresses, the characters face
+              increasingly dangerous threats from both the Upside Down and human
+              adversaries.
+            </div>
+            <div className="video-container__buttons">
+              <button className="video-container__button video-container__button--play">
+                Play Now
+              </button>
+              <button className="video-container__button video-container__button--info">
+                Info
+              </button>
+            </div>
+          </div>
+        </div>
 
-      <button onClick={handlePrevPage} disabled={currentPage === 1}>
-        Previous Page
-      </button>
-      <button onClick={handleNextPage} disabled={currentPage === totalPage}>
-        Next Page
-      </button>
+        <div className="movie-container">
+          {allMovies.map((item) => {
+            return <p key={item.id}>{item.title}</p>;
+          })}
 
-      <p>
-        {" "}
-        {currentPage}/{totalPage}
-      </p>
+          <h1>Home!</h1>
+          <button onClick={() => setSize(3)}> 3 </button>
+          <button onClick={() => setSize(5)}> 5 </button>
+          <button onClick={() => setSize(8)}> 8 </button>
+          <div className="movies">{moviesHtml}</div>
+
+          <button onClick={handlePrevPage} disabled={currentPage === 1}>
+            Previous Page
+          </button>
+          <button onClick={handleNextPage} disabled={currentPage === totalPage}>
+            Next Page
+          </button>
+
+          <p>
+            {" "}
+            {currentPage}/{totalPage}
+          </p>
+        </div>
+      </div>
     </>
   );
 };
