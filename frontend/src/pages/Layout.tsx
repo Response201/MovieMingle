@@ -11,7 +11,7 @@ import { Login } from "../components/login";
 export const Layout = () => {
 	return (
 		<>
-<div className="layout-wrapper">
+
 			<header>
 
 			
@@ -29,7 +29,7 @@ export const Layout = () => {
 			<footer>
 				<h2>Footer</h2>
 			</footer>
-			</div>
+		
 		</>
 	);
 };
