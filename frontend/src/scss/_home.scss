@@ -154,7 +154,7 @@
       width: 20%;
 
       &:hover {
-        margin-top: -5px;
+        transform: translateY(-10px);
         cursor: pointer;
       }
     }

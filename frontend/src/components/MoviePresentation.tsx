@@ -32,7 +32,7 @@ export const MoviePresentation = (props: IMovieProps) => {
               {props.movie.genre} | {props.movie.length} min
             </p>
             <p className="movie__description">{props.movie.description}</p>
-            <button className="movie__button-rent">
+            <button className="movie__button-rent" id="button-click">
               Rent: {props.movie.price} kr
             </button>
           </div>
