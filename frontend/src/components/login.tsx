@@ -22,7 +22,7 @@ export const Login = () => {
 
 
 
-	console.log(import.meta.env.VITE_CLIENTID)
+	
     function handleCallbackResponse(response: GoogleResponse) {
 		const userObject = jwtDecode(response.credential);
         Cookies.set("jwtToken", response.credential, { expires: 1 / 24 });
@@ -59,7 +59,7 @@ export const Login = () => {
         const signInDiv = document.getElementById("signInDiv");
         const signOutDiv = document.getElementById("signOutDiv");
 
-        const div = document.querySelector<HTMLElement>(".loginOut")!;
+       
         if (signInDiv && signOutDiv) {
             if (userSignedIn !== "") {
                 signInDiv.hidden = true;
