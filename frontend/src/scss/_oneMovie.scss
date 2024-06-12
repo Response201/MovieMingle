@@ -1,6 +1,10 @@
 @use "_mixins" as m;
 
 .movie {
+  height: 86vh; //kolla på dessa sen
+  padding-top: 50px; //kolla på dessa sen
+  background-color: black;
+
   &__info-wrapper {
     display: flex;
     flex-direction: column;
@@ -19,18 +23,21 @@
   &__description {
     margin: 20px 0px 0px 55px;
     text-align: start;
+    color: white;
   }
 
   &__title-selected {
     font-size: 1.6rem;
     margin: 10px 0px 0px 55px;
     text-align: start;
+    color: white;
   }
 
   &__genre-selected {
     font-size: 0.9rem;
     text-align: start;
     margin: 10px 0px 0px 55px;
+    color: white;
   }
 
   &__button-rent {
@@ -46,8 +53,10 @@
   }
 
   @include m.devices(desktop) {
+    margin-top: 40px; //kolla på dessa sen
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 86vh; //kolla på dessa sen
   }
 }

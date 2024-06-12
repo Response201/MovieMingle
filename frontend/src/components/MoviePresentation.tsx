@@ -29,7 +29,7 @@ export const MoviePresentation = (props: IMovieProps) => {
           <div className="movie__info-wrapper">
             <h3 className="movie__title-selected">{props.movie.title}</h3>
             <p className="movie__genre-selected">
-              {props.movie.genre.join(", ")} | {props.movie.length} min
+              {props.movie.genre} | {props.movie.length} min
             </p>
             <p className="movie__description">{props.movie.description}</p>
             <button className="movie__button-rent">
