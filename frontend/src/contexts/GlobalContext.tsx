@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useState, Dispatch, SetStateAction, useContext } from "react";
 import { Movie } from "../model/movie";
 import Cookies from 'js-cookie';
+
 interface ReservevationData {
 	children?: false | ReactNode;
 	cartItems: Movie[];
@@ -44,3 +45,6 @@ export const useGlobalContext = (): ReservevationData => {
 	}
 	return context;
 };
+
+
+

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { FetchMovies } from "../functions/FetchMovies";
 import { MoviePresentation } from "../components/MoviePresentation";
 import axios from "axios";
-import { Movie } from "../model/movie";
+import { Movie }  from "../model/movie";
 
 import "../scss/_home.scss";
 
@@ -79,6 +79,7 @@ export const Home = () => {
         </div>
 
         <div className="movie-container">
+
           {allMovies.map((item) => {
             return <p key={item.id}>{item.title}</p>;
           })}
