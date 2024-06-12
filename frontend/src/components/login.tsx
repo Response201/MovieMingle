@@ -64,11 +64,11 @@ export const Login = () => {
             if (userSignedIn !== "") {
                 signInDiv.hidden = true;
                 signOutDiv.hidden = false;
-                div.style.right = "6rem";
+                
             } else {
                 signInDiv.hidden = false;
                 signOutDiv.hidden = true;
-                div.style.right = "1rem";
+               
             }
         }
     }, [userSignedIn]);

@@ -9,12 +9,11 @@
    position: fixed;
     display: flex;
     height: 30px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5); 
-    
-    padding: 10px 20px;
-    width: 100%;
+    padding: 1rem 2rem;
+    width: calc(100% - 4rem);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     z-index: 1000;
 
@@ -22,10 +21,10 @@
 
   
     &__brand {
-    
-   
+display: flex;
         width: 15%;
       a {
+        
         font-size: 24px;
         font-weight: bold;
         color: #fff;
@@ -134,7 +133,7 @@
     .bm-menu {
      
       background: rgba(0, 0, 0, 0.9);
-      padding: 2.5em 1.5em 0;
+      padding: 2.5em 1em 0;
       font-size: 1.5rem;
       text-align: right;
       text-transform: uppercase;
