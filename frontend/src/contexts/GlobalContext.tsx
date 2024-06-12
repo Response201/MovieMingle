@@ -12,6 +12,8 @@ interface ReservevationData {
 	setTotalPage:Dispatch<SetStateAction<number>>;
 	userSignedIn: string;
 	setUserSignedIn: Dispatch<SetStateAction<string>>;
+	genre: string[];
+	setGenre: Dispatch<SetStateAction<string[]>>;
 }
 interface Props {
 	children: ReactNode;
@@ -20,8 +22,9 @@ export const GlobalContext = createContext<ReservevationData | undefined>(undefi
 export const GlobalProvider = ({ children }: Props) => {
 	const [cartItems, setCartItems] = useState<Movie[]>(JSON.parse(localStorage.getItem("cart") || "[]"));
 	const [userSignedIn, setUserSignedIn] = useState(Cookies.get('jwtToken') || "");
-const [allMovies, setAllMovies] = useState<Movie[]>([])
+	const [allMovies, setAllMovies] = useState<Movie[]>([]);
 const [totalPage, setTotalPage] = useState(0);
+const [genre, setGenre] = useState<string[]>([])
 
 	return (
 		<GlobalContext.Provider
@@ -31,7 +34,9 @@ const [totalPage, setTotalPage] = useState(0);
 				allMovies, 
 				setAllMovies, totalPage, setTotalPage,
 				userSignedIn,
-				setUserSignedIn
+				setUserSignedIn,
+				genre, 
+				setGenre
 			}}
 		>
 			{children}

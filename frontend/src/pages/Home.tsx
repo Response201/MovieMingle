@@ -2,12 +2,12 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 import { useEffect, useState } from "react";
 import { FetchMovies } from "../functions/FetchMovies";
 import { MoviePresentation } from "../components/MoviePresentation";
-
 import "../scss/_home.scss";
+
 
 export const Home = () => {
   /* Global Context => variablar går att nå i hela appen vid denna typ av import */
-  const { allMovies, totalPage, setAllMovies, setTotalPage } =
+  const { allMovies, totalPage, setAllMovies, setTotalPage} =
     useGlobalContext();
   const [currentPage, setCurrentPage] = useState(1);
   const [size, setSize] = useState(5);
@@ -18,12 +18,21 @@ export const Home = () => {
     setTotalPage(totalPages);
   };
 
+
+
   /* make new fetch when page changes */
   useEffect(() => {
     fetchMoviesData(currentPage, size);
-  }, [currentPage, size]);
+  }, [currentPage]);
 
-  console.log(fetchMoviesData);
+
+  useEffect(() => {
+    fetchMoviesData(1, size);
+    setCurrentPage(1)
+  }, [size]);
+
+
+
 
   const handlePrevPage = () => {
     if (currentPage > 1) {

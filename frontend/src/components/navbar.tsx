@@ -2,9 +2,32 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import HamburgerMenu from './HamburgerMenu';
 import { Login } from './login';
+import { useGlobalContext } from '../contexts/GlobalContext';
+import FetchAllGenres from '../functions/FetchAllGenres';
+
+
 
 const Navigation = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const {genre, setGenre} = useGlobalContext();
+
+
+  useEffect(() => {
+    if(genre.length <= 0){
+    const fetchData = async () => {
+      
+        const hello = await FetchAllGenres();
+    
+       setGenre(hello)
+    };
+  
+    fetchData();}
+  }, []);
+
+
+
+
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,16 +54,11 @@ const Navigation = () => {
           <div className="navigation__container">
             <ul className="navigation__links">
               <li className="navigation__item"><Link to="/">Home</Link></li>
-              <li className="navigation__item"><Link to="/movies">Series</Link></li>
-              <li className="navigation__item"><Link to="/movies">Movies</Link></li>
-              <li className="navigation__item"><Link to="/notfound">Drama</Link></li>
-              <li className="navigation__item"><Link to="/notfound">Action</Link></li>
-              <li className="navigation__item"><Link to="/notfound">Drama</Link></li>
-              <li className="navigation__item"><Link to="/notfound">Fantasy</Link></li>
-              <li className="navigation__item"><Link to="/notfound">Comedy</Link></li>
-              <li className="navigation__item"><Link to="/notfound">Science Fiction</Link></li>
-              <li className="navigation__item"><Link to="/notfound">Romance</Link></li>
-              <li className="navigation__item"><Link to="/notfound">Family</Link></li>
+              {genre.map(genreItem =>   <li className="navigation__item" key={genreItem}>
+    <Link to={`/genre/${genreItem}`}>{genreItem}</Link>
+  </li>   )}
+           
+              
             </ul>
             <div className="nav-icons">
               <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 2048 2048">
