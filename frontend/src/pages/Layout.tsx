@@ -10,13 +10,14 @@ import { Login } from "../components/login";
 
 export const Layout = () => {
 	return (
-		<>
+		
 
-			<header>
+		<>	
+		<header>
 
 			
 	<Navigation />	
-			<Login />
+			
 			</header>
 	
 			<main>
@@ -26,10 +27,13 @@ export const Layout = () => {
 				<Outlet />
 				
 			</main>
+			<footer className="layout-footer">
 			<footer>
-				<h2>Footer</h2>
+				<p>© 2021 MovieMingle</p>
 			</footer>
+			</footer>
+			</>
+			
 		
-		</>
 	);
 };

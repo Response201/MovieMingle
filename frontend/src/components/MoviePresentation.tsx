@@ -21,3 +21,5 @@ export const MoviePresentation = (props: IMovieProps) => {
     //if loggedin => show buyButton
   );
 };
+
+export default MoviePresentation;
