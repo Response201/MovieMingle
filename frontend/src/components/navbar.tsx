@@ -54,6 +54,7 @@ const Navigation = () => {
           <div className="navigation__container">
             <ul className="navigation__links">
               <li className="navigation__item"><Link to="/">Home</Link></li>
+              <li className="navigation__item"><Link to="/about">About</Link></li>
               {genre.map(genreItem =>   <li className="navigation__item" key={genreItem}>
     <Link to={`/genre/${genreItem}`}>{genreItem}</Link>
   </li>   )}
