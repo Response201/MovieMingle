@@ -78,7 +78,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ price, setShowPayment }) =>
             <button type="button" onClick={() => setShowPayment(false)}>
                 Stäng
             </button>
-            {error && <div className="payment-message">{error}</div>}
+            {!success && error && <div className="payment-message">{error}</div>}
             {success && <div className="payment-message">Betalningen lyckades!</div>}
         </form>
     );
