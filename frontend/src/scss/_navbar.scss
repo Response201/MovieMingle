@@ -1,4 +1,5 @@
 @use "variables" as v;
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
 
 
 
@@ -15,7 +16,7 @@
     
     padding: 10px 20px;
     width: 100%;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:"Montserrat", sans-serif;
     z-index: 1000;
 
 
@@ -155,6 +156,6 @@
   .nav-icons {
     cursor: pointer;
     position: relative;
-    right:10%;
+    right:8%;
   }
     

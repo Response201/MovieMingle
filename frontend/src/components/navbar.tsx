@@ -18,6 +18,7 @@ const Navigation = () => {
       <div className="navigation__container">
       <ul className="navigation__links">
         <li className="navigation__item"><Link to="/">Home</Link></li>
+        <li className="navigation__item"><Link to="/about">About</Link></li>
         <li className="navigation__item"><Link to="/movies">Series</Link></li>
         <li className="navigation__item"><Link to="/movies">Movies</Link></li>
         <li className="navigation__item"><Link to="/notfoud">Drama</Link></li>

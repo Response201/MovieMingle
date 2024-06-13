@@ -4,6 +4,7 @@ import { NotFound } from "./pages/NotFound";
 import { Home } from "./pages/Home";
 import { Movies } from "./pages/Movies";
 import { Movie } from "./pages/Movie";
+import { About } from "./pages/About";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ export const router = createBrowserRouter([
         index: true,
       },
       {
+        path: "/about",
+        element: <About />,
+        index: true,
+      },
+      {
         path: "/movies",
         element: <Movies />,
         index: true,
@@ -26,6 +32,7 @@ export const router = createBrowserRouter([
         element: <Movie />,
         index: true,
       },
+
     ],
   },
 ]);
