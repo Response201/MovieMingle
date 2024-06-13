@@ -3,23 +3,22 @@
     top: 0.5%;
     z-index: 10;
     min-width: fit-content;
+    z-index: 5000;
+display: flex;
+justify-content: end;
+    button{
+        height: 36px;
+        border-radius: 20px;
+        background-color: aliceblue;
+        padding: 0 1.5rem ;
+    }
+
     }
     
-    
-    
     .signOutDiv{
-        
-  
-
-
         z-index: 20;
     }
     .signInDiv{
-    
-    right: 0;
-    z-index: 20;
-    
-    
-    
+    z-index: 5000;
         
     }
