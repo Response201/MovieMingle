@@ -3,8 +3,9 @@ import { Layout } from "./pages/Layout";
 import { NotFound } from "./pages/NotFound";
 import { Home } from "./pages/Home";
 import { Movies } from "./pages/Movies";
-import { Movie } from "./pages/Movie";
+import { OneMovie } from "./pages/OneMovie";
 import { About } from "./pages/About";
+import { GenrePage } from "./pages/GenrePage";
 
 export const router = createBrowserRouter([
   {
@@ -23,13 +24,13 @@ export const router = createBrowserRouter([
         index: true,
       },
       {
-        path: "/movies",
-        element: <Movies />,
+        path: "/genre/:genreItem",
+        element: <GenrePage />,
         index: true,
       },
       {
         path: "/movie/:movieId",
-        element: <Movie />,
+        element: <OneMovie />,
         index: true,
       },
 

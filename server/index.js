@@ -85,6 +85,27 @@ app.get('/api/genre/:genre', async (req, res) => {
 });
 
 
+app.get('/genre', async (req, res) => {
+    try {
+        const movieResult = await pool.query('SELECT * FROM movies');
+      const movietitles = [];
+      if(movieResult)
+      for (const item of movieResult.rows) {
+        item.genre.split(',').forEach(itemGenre => {
+          const trimmedGenre = itemGenre.trim();
+          if (!movietitles.includes(trimmedGenre)) {
+            movietitles.push(trimmedGenre);
+          }
+        });
+      }
+      res.send(movietitles);
+    } catch (error) {
+      console.error('Error fetching genres:', error);
+      res.status(500).send('Något gick fel vid hämtning av genrer.');
+    }
+  });
+
+
 
 
 

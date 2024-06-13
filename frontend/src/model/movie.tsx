@@ -5,5 +5,5 @@ export interface Movie {
   length: number;
   image: string;
   price: number;
-  genre: [string];
+  genre: string;
 }

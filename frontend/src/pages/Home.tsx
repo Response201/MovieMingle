@@ -2,14 +2,12 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 import { useEffect, useState } from "react";
 import { FetchMovies } from "../functions/FetchMovies";
 import { MoviePresentation } from "../components/MoviePresentation";
-import axios from "axios";
-import { Movie }  from "../model/movie";
-
 import "../scss/_home.scss";
+
 
 export const Home = () => {
   /* Global Context => variablar går att nå i hela appen vid denna typ av import */
-  const { allMovies, totalPage, setAllMovies, setTotalPage } =
+  const { allMovies, totalPage, setAllMovies, setTotalPage} =
     useGlobalContext();
   const [currentPage, setCurrentPage] = useState(1);
   const [size, setSize] = useState(5);
@@ -20,12 +18,21 @@ export const Home = () => {
     setTotalPage(totalPages);
   };
 
+
+
   /* make new fetch when page changes */
   useEffect(() => {
     fetchMoviesData(currentPage, size);
-  }, [currentPage, size]);
+  }, [currentPage]);
 
-  console.log(fetchMoviesData);
+
+  useEffect(() => {
+    fetchMoviesData(1, size);
+    setCurrentPage(1)
+  }, [size]);
+
+
+
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
@@ -79,28 +86,46 @@ export const Home = () => {
         </div>
 
         <div className="movie-container">
+          <div className="pageSize">
+            <p>Movies per page:</p>
+            <div className="pageSize__container">
+              <p
+                className={"pageSize__button" + (size === 3 ? "-selected" : "")}
+                onClick={() => setSize(3)}
+              >
+                3
+              </p>
+              <p
+                className={"pageSize__button" + (size === 5 ? "-selected" : "")}
+                onClick={() => setSize(5)}
+              >
+                5
+              </p>
+              <p
+                className={"pageSize__button" + (size === 8 ? "-selected" : "")}
+                onClick={() => setSize(8)}
+              >
+                8
+              </p>
+            </div>
+          </div>
 
-          {allMovies.map((item) => {
-            return <p key={item.id}>{item.title}</p>;
-          })}
-
-          <h1>Home!</h1>
-          <button onClick={() => setSize(3)}> 3 </button>
-          <button onClick={() => setSize(5)}> 5 </button>
-          <button onClick={() => setSize(8)}> 8 </button>
           <div className="movies">{moviesHtml}</div>
 
-          <button onClick={handlePrevPage} disabled={currentPage === 1}>
-            Previous Page
-          </button>
-          <button onClick={handleNextPage} disabled={currentPage === totalPage}>
-            Next Page
-          </button>
-
-          <p>
-            {" "}
-            {currentPage}/{totalPage}
-          </p>
+          <div className="page">
+            <button onClick={handlePrevPage} disabled={currentPage === 1}>
+              Previous Page
+            </button>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPage}
+            >
+              Next Page
+            </button>
+            <p>
+              Page: {currentPage} of {totalPage}
+            </p>
+          </div>
         </div>
       </div>
     </>
