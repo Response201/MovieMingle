@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Movie } from "../model/movie";
+import {  useGlobalContext } from "../contexts/GlobalContext";
 
 interface IMovieProps {
   movie: Movie;
@@ -8,6 +9,7 @@ interface IMovieProps {
 export const MoviePresentation = (props: IMovieProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { userSignedIn } = useGlobalContext();
 
   return (
     <div
@@ -32,9 +34,10 @@ export const MoviePresentation = (props: IMovieProps) => {
               {props.movie.genre} | {props.movie.length} min
             </p>
             <p className="movie__description">{props.movie.description}</p>
-            <button className="movie__button-rent" id="button-click">
+            {userSignedIn ? <button className="movie__button-rent" id="button-click">
               Rent: {props.movie.price} kr
-            </button>
+            </button> : '' }
+         
           </div>
         </>
       ) : (

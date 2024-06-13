@@ -14,8 +14,8 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5); 
     
-    padding: 10px 20px;
-    width: 100%;
+    padding: 1rem;
+    width: calc(100% - 2rem);
     font-family:"Montserrat", sans-serif;
     z-index: 1000;
 
@@ -55,7 +55,7 @@ display: flex;
         text-decoration: none;
         font-weight:100;
         
-  
+  font-size: clamp(10px, 1vw, 15px);
         &:hover {
           text-decoration: underline;
         }
@@ -68,7 +68,7 @@ display: flex;
       background-color: #ff4e50;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 0.5rem;
       cursor: pointer;
       font-size: 16px;
       
@@ -156,6 +156,7 @@ display: flex;
   .nav-icons {
     cursor: pointer;
     position: relative;
-    right:8%;
+    right:2%;
+    
   }
     
