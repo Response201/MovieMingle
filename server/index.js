@@ -4,6 +4,7 @@ const app = express();
 const movies = require('./data.json');
 const { Pool } = require('pg');
 require('dotenv').config();
+const Stripe = require('stripe');
 const port = 3000;
 app.use(cors());
 app.use(express.json());
@@ -17,6 +18,33 @@ const pool = new Pool({
         rejectUnauthorized: false
     }
 });
+
+/* Paymet */
+const stripe = require("stripe")(process.env.KEY);
+app.post('/create-payment-intent', async (req, res) => {
+    const { amount } = req.body;
+
+    try {
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: amount,
+            currency: "sek",
+            automatic_payment_methods: {
+              enabled: true,
+            },
+        });
+
+        res.send({
+            clientSecret: paymentIntent.client_secret,
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
+
+
+
 
 
 

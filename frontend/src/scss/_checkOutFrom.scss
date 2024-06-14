@@ -1,0 +1,69 @@
+@use "_mixins" as m;
+
+
+.payment {
+    font-size: 16px;
+    display: flex;
+    height: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    width: 100%;
+    padding: 0;
+
+    @include m.devices(tablet) {
+        justify-content: center;
+        align-items: center;
+        padding: 0 2rem;
+        width: calc(100% - 4rem);
+    }
+
+    @include m.devices(desktop) {
+        padding: 0 0 0 2.8rem;
+        margin-top: 0.5rem;
+
+    }
+
+}
+
+
+
+.payment-form {
+    width: calc(95% - 2rem);
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: #76727270;
+    color: #ffffff;
+    height: fit-content;
+
+
+    button {
+        margin: 0.5rem 10px 0.5rem 0;
+        background-color: rgba(209, 218, 209, 1);
+        border: none;
+        border-radius: 3px;
+        padding: 5px 10px;
+
+        &:hover {
+            transform: scale(95%);
+            background-color: rgba(209, 218, 209, 0.5);
+        }
+    }
+}
+
+
+
+
+.payment-message {
+    height: fit-content;
+    padding: 10px 0 0 0;
+    text-align: center;
+    z-index: 1000;
+    color: #ffffff;
+}
+
+.payment-element {
+    margin: 1rem 0 1.5rem 0;
+    color: #ffffff;
+}
