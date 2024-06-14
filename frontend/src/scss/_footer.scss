@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap');
+
+$color-white: #fafafa;
+$color-off-white: #dfdfdf;
+$color-gray: darken($color-white, 50%);
+$color-black: #000;
+$font-copy: "Montserrat", sans-serif;
+$font-title: "Anton", sans-serif;
+
+
+
+
+.footer {
+  background: linear-gradient(to bottom,  #000000,#622b4f);
+  color: $color-off-white;
+  padding: 3rem 0;
+  font-family: $font-copy;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    border-top: 1px solid $color-gray;
+    border-bottom: 1px solid $color-gray;
+
+
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-family: $font-title;
+    color: $color-white;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    color: $color-off-white;
+  }
+
+  &__links {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+
+        a {
+          color: $color-white;
+          text-decoration: none;
+          transition: color 0.3s;
+
+          &:hover {
+            color: $color-gray;
+          }
+        }
+      }
+    }
+  }
+
+  &__social {
+    &-links {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        color: $color-white;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $color-gray;
+        }
+      }
+    }
+  }
+
+  &__contact {
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+   
+    color: $color-off-white;
+  }
+}

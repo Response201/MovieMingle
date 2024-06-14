@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 
 import  Navigation from "../components/navbar";
-import { Login } from "../components/login";
+import { Footer } from "../components/Footer";
 
 
 
@@ -27,11 +27,7 @@ export const Layout = () => {
 				<Outlet />
 				
 			</main>
-			<footer className="layout-footer">
-			<footer>
-				<p>© 2021 MovieMingle</p>
-			</footer>
-			</footer>
+			<Footer />
 			</>
 			
 		
