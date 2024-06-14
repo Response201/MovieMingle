@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { FetchMovies } from "../services/FetchMovies";
 import { MoviePresentation } from "../components/MoviePresentation";
 import "../scss/_home.scss";
+import Footer from "../components/Footer";
 
 export const Home = () => {
   /* Global Context => variablar går att nå i hela appen vid denna typ av import */
@@ -179,6 +180,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

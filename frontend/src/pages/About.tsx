@@ -1,11 +1,13 @@
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
 import MapComponent from "../components/GoogleMaps";
 import "../scss/_about.scss";
+import Footer from "../components/Footer";
 
 export const About = () => {
   const render = (status: Status) => <h1>{status}</h1>;
 
   return (
+    <>
     <div className="about-container">
       <header className="about-header">
         <nav className="nav">
@@ -68,7 +70,10 @@ export const About = () => {
           </section>
         </article>
       </main>
+      
     </div>
+    <Footer />
+    </>
   );
 };
 
