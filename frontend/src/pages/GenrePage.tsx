@@ -26,12 +26,14 @@ export const GenrePage = () => {
     }, [genreItem]);
   
     return (
+      <div className="GenreWrapper">
       <section className='GenrePageContainer'>
         <h1>{genreItem}</h1>
         <section className='movies'> 
         {movies.map( movie => <MoviePresentation key={movie.id} movie={movie} />)}
         </section>
       </section>
+      </div>
     );
   };
 

@@ -1,24 +1,34 @@
-.GenrePageWrapper{
-height: 100%;
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
+
+.GenreWrapper{
+background-color: black;
+
+padding-top:10%;
+
+ color:white;
+    font-family: "Montserrat", sans-serif;
     width: 100%;
-  
+    height: 100%;
 
   }
   
-  .GenrePageContainer {
+.GenrePageContainer  {
+  width: 100%;
+  height: 100%;
+
+
+
+  }
+.GenreWrapper h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 50px;
   color: white;
-    top: 0;
-    left: 0;
-    width: 100%;
-  padding-top: 6rem;
-min-height: calc(95vh - 6rem);
-    overflow: hidden; 
-
-
-background-color: black;
+  text-transform: uppercase;
 
 }
 
+  
 
 
 

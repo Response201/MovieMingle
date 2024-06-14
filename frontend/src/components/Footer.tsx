@@ -15,10 +15,10 @@ export const Footer = () => {
           <h2 className="footer__title">Quick Links</h2>
           <ul>
             <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>
-            <li><Link to="/faq">FAQ</Link></li>
-            <li><Link to="/privacy">Privacy Policy</Link></li>
-            <li><Link to="/terms">Terms of Service</Link></li>
+            <li><Link to="#">Contact Us</Link></li>
+            <li><Link to="#">FAQ</Link></li>
+            <li><Link to="#">Privacy Policy</Link></li>
+            <li><Link to="#">Terms of Service</Link></li>
           </ul>
         </div>
         <div className="footer__social">

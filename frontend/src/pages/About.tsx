@@ -15,7 +15,7 @@ export const About = () => {
         <nav className="nav">
           <ul className="nav__list">
             <li>
-              <a className="nav__link" href="#!">Home</a>
+              <a className="nav__link" href="/">Home</a>
             </li>
             <li>
               <a className="nav__link" href="#!">About Us</a>

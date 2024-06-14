@@ -2,7 +2,17 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
 
+.arrow-down {
+display: none;
 
+  @media (min-width: 768px) {
+  position: absolute;
+ display: block;
+  bottom: 62%;
+ right:48%;
+  cursor: pointer;
+  }
+}
 .home-wrapper {
   position: relative;
   width: 100%;

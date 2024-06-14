@@ -1,13 +1,15 @@
 @use "_mixins" as m;
-
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
 .movie {
-  height: 86vh; //kolla på dessa sen
-  padding-top: 50px; //kolla på dessa sen
-  background-color: black;
+ font-family: "Montserrat", sans-serif;
+
+  
+   background: linear-gradient(to bottom,   rgb(52, 50, 50),  #000000);
 
   &__info-wrapper {
     display: flex;
     flex-direction: column;
+    
   }
 
   &__image-selected {
@@ -15,7 +17,7 @@
     height: 50vh;
 
     @include m.devices(desktop) {
-      margin-top: 50px;
+      margin-top: 60px;
       height: 60vh;
     }
   }
@@ -53,10 +55,13 @@
   }
 
   @include m.devices(desktop) {
-    margin-top: 40px; //kolla på dessa sen
+  
+
+   
+  height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 86vh; //kolla på dessa sen
+  
   }
 }
