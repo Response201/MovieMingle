@@ -1,12 +1,12 @@
-import React from 'react';
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Movie } from "../model/movie";
 import { useGlobalContext } from "../contexts/GlobalContext";
-import CheckoutForm from './CheckoutForm';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
+import CheckoutForm from "./CheckoutForm";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
-const stripePromise = loadStripe(import.meta.env.VITE_TEST_VAR); 
+const stripePromise = loadStripe(import.meta.env.VITE_TEST_VAR);
 
 interface IMovieProps {
   movie: Movie;
@@ -16,9 +16,7 @@ export const MoviePresentation = (props: IMovieProps) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { userSignedIn } = useGlobalContext();
-  const [showPayment, setShowPayment] = React.useState(false);
-
-
+  const [showPayment, setShowPayment] = useState(false);
 
   return (
     <div
@@ -52,14 +50,19 @@ export const MoviePresentation = (props: IMovieProps) => {
                   Rent: {props.movie.price} kr
                 </button>
                 {showPayment && (
-                  <section className='payment'> 
-                  <Elements stripe={stripePromise}  >
-                    <CheckoutForm price={props.movie.price}  setShowPayment={setShowPayment} />
-                  </Elements>
+                  <section className="payment">
+                    <Elements stripe={stripePromise}>
+                      <CheckoutForm
+                        price={props.movie.price}
+                        setShowPayment={setShowPayment}
+                      />
+                    </Elements>
                   </section>
                 )}
               </>
-            ) : '' }
+            ) : (
+              ""
+            )}
           </div>
         </>
       ) : (
