@@ -3,14 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
 
 .arrow-down {
-display: none;
+  display: none;
 
   @media (min-width: 768px) {
-  position: absolute;
- display: block;
-  bottom: 62%;
- right:48%;
-  cursor: pointer;
+    position: absolute;
+    display: block;
+    bottom: 62%;
+    right: 48%;
+    cursor: pointer;
   }
 }
 .home-wrapper {
@@ -177,6 +177,26 @@ display: none;
 .page {
   background-color: black;
   padding: 30px;
+
+  &__button-previous,
+  &__button-next {
+    background-color: #ff4e50;
+    height: 35px;
+    border-radius: 15px;
+    margin: 0px 5px;
+    padding: 0px 15px;
+    border: none;
+    color: black;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__button-next:disabled,
+  &__button-previous:disabled {
+    filter: opacity(40%);
+    cursor: default;
+  }
 }
 
 .pageSize {

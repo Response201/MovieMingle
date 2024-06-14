@@ -76,7 +76,7 @@ export const Login = () => {
     <section className="loginOut">
       <div id="signInDiv"></div>
       <button onClick={() => handleSignOut()} id="signOutDiv">
-        logga ut
+        Logout
       </button>
     </section>
   );
