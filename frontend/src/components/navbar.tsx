@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
-import { Login } from "./Login";
+
 import { useGlobalContext } from "../contexts/GlobalContext";
 import FetchAllGenres from "../services/FetchAllGenres";
+import { Login } from "./login";
 
 const Navigation = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
