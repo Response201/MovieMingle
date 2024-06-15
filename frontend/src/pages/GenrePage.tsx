@@ -26,7 +26,7 @@ export const GenrePage = () => {
   return (
     <div className="GenreWrapper">
       <section className="GenrePageContainer">
-       {movies && <h1>{genreItem}</h1>}
+       {movies.length <= 1 && <h1>{genreItem}</h1>}
         <section className="movies">
           {movies.map((movie) => (
             <MoviePresentation key={movie.id} movie={movie} />
