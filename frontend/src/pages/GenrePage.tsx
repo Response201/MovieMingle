@@ -1,4 +1,4 @@
-import { Movie } from "@/model/movie";
+import { Movie } from "../model/movie";
 import { FetchGenre } from "../services/FetchGenre";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";

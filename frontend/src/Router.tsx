@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { NotFound } from "./pages/NotFound";
 import { Home } from "./pages/Home";
-import { Movies } from "./pages/Movies";
 import { OneMovie } from "./pages/OneMovie";
 import { About } from "./pages/About";
 import { GenrePage } from "./pages/GenrePage";
