@@ -1,4 +1,11 @@
 // src/global.d.ts
 
-// Example of a global declaration (you can leave this file empty if you don't need any)
-declare module 'my-global-module';
+declare module 'google' {
+    interface GoogleMaps {
+      version: string;
+      map: google.maps.Map | null;
+  
+    }
+  
+    export function maps(): GoogleMaps;
+  }
