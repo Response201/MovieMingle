@@ -18,18 +18,25 @@ const loadScript = (src: string, onLoad: () => void) => {
 export const Login = () => {
   const { userSignedIn, setUserSignedIn } = useGlobalContext();
 
-  function handleCallbackResponse(response: GoogleResponse) {
-    const userObject = jwtDecode(response.credential);
-    Cookies.set("jwtToken", response.credential, { expires: 1 / 24 });
-    const current = Date.now() / 1000;
-    if (userObject.exp && userObject.exp > current) {
-      setUserSignedIn(response.credential);
-    } else {
-      Cookies.set("jwtToken", "");
-    }
-  }
 
   useEffect(() => {
+
+
+    function handleCallbackResponse(response: GoogleResponse) {
+      const userObject = jwtDecode(response.credential);
+      Cookies.set("jwtToken", response.credential, { expires: 1 / 24 });
+      const current = Date.now() / 1000;
+      if (userObject.exp && userObject.exp > current) {
+        setUserSignedIn(response.credential);
+      } else {
+        Cookies.set("jwtToken", "");
+      }
+    }
+  
+
+
+
+
     loadScript("https://accounts.google.com/gsi/client", () => {
       // Initialize Google Accounts ID
       google.accounts.id.initialize({
@@ -50,7 +57,7 @@ export const Login = () => {
         console.error('Element with id "signInDiv" not found.');
       }
     });
-  }, []);
+  }, [setUserSignedIn]);
 
   useEffect(() => {
     const signInDiv = document.getElementById("signInDiv");

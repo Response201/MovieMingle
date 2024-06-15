@@ -1,8 +1,6 @@
 /// <reference types="vite/client" />
 
 
-
-
 declare namespace google.accounts {
     namespace oauth2 {
         /**
