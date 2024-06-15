@@ -2,6 +2,7 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 import { useEffect, useState } from "react";
 import { FetchMovies } from "../services/FetchMovies";
 import { MoviePresentation } from "../components/MoviePresentation";
+import video from "../../video/ssvid.net - Running Up That Hill Vol 2 Scene  Stranger Things 4.mp4"
 import "../scss/_home.scss";
 import Footer from "../components/Footer";
 
@@ -40,7 +41,7 @@ export const Home = () => {
     }
   };
 
-  let moviesHtml = allMovies.map((movie) => (
+  const moviesHtml = allMovies.map((movie) => (
     <MoviePresentation key={movie.id} movie={movie} />
   ));
 
@@ -57,7 +58,7 @@ export const Home = () => {
         <div className="video-container">
           <video className="video-container__video" autoPlay muted loop>
             <source
-              src="/video/ssvid.net - Running Up That Hill Vol 2 Scene  Stranger Things 4.mp4"
+              src={video}
               type="video/mp4"
             />
             Your browser does not support the video tag.
