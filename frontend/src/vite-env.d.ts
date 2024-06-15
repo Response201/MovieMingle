@@ -1,15 +1,5 @@
 /// <reference types="vite/client" />
 
-declare module 'google' {
-    interface GoogleMaps {
-  
-      version: string;
-      map: google.maps.Map | null;
-  
-    }
-  
-    export function maps(): GoogleMaps;
-  }
 
 declare namespace google.accounts {
     namespace oauth2 {

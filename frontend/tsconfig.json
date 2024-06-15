@@ -5,12 +5,12 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true, // Ensure this option is enabled
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true, // Set to false if you want TypeScript to emit compiled files
+    "noEmit": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -21,7 +21,7 @@
     },
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src", "src/global.d.ts"], // Adjust as per your project structure
+  "include": ["src", "src/global.d.ts", "/vercel/path0/frontend/index.d.tsx"], 
   "references": [
     {
       "path": "./tsconfig.node.json"
