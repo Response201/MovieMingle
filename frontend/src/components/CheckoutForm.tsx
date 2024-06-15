@@ -43,7 +43,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/create-payment-intent",
+        "https://movie-mingle-server.vercel.app/create-payment-intent",
         { amount: price * 100 }
       );
       const { clientSecret } = data;

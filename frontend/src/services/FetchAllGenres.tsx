@@ -7,7 +7,7 @@ const FetchAllGenres = async () => {
    
     try {
         const response = await axios.get(
-          `http://localhost:3000/genre`
+          `https://movie-mingle-server.vercel.app/genre`
         );
 
       

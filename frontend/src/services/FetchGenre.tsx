@@ -1,4 +1,4 @@
-import { Movie } from '@/model/movie';
+import { Movie } from '../model/movie';
 import axios from 'axios';
 
 
@@ -7,7 +7,7 @@ import axios from 'axios';
 export const FetchGenre = async (genre:string) => {
     try {
         const response = await axios.get<Movie[]>(
-          `http://localhost:3000/api/genre/${genre}`
+          `https://movie-mingle-server.vercel.app/api/genre/${genre}`
         );
 
 
