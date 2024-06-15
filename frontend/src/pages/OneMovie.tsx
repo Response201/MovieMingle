@@ -1,5 +1,5 @@
 import { MoviePresentation } from "../components/MoviePresentation";
-import { FetchMovie } from "../functions/FetchMovie";
+import { FetchMovie } from "../services/FetchMovie";
 import { Movie } from "../model/movie";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -21,5 +21,10 @@ export const OneMovie = () => {
     getData();
   }, [id]);
 
-  return movie ? <MoviePresentation movie={movie} /> : null;
+  return movie ? (
+    <article className="oneMovie__wrapper">
+      {" "}
+      <MoviePresentation movie={movie} />
+    </article>
+  ) : null;
 };
