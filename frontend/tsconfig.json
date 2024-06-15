@@ -2,43 +2,26 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "ESNext",
-    "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": true,
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": [],
-    "typeRoots": [
-      "node_modules/@types",
-      "src/typings"
-    ],
+    "forceConsistentCasingInFileNames": true, // Ensure this option is enabled
+    "jsx": "react-jsx",
     "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "noEmit": true, // Set to false if you want TypeScript to emit compiled files
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "src/*": [
-        "./src/*"
-      ]
+      "src/*": ["./src/*"]
     },
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "src",
-    "src/global.d.ts",
-   "src/vite-env.d.ts"
-  ],
+  "include": ["src", "src/global.d.ts"], // Adjust as per your project structure
   "references": [
     {
       "path": "./tsconfig.node.json"
