@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Movie Mingle
 
-Currently, two official plugins are available:
+We have collaborated on a group project to create a web application that allows users to rent movies. Users can log in using their Google account, view the company's location on a Google Maps-integrated "About Me" page, and make purchases with payments processed through Stripe. On the backend, we used Node.js and SQL to store purchase information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+![App Screenshot](https://i.ibb.co/xDcfGzd/2.png)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+| [Se Live](https://movie-mingle-puce.vercel.app/) |
+|------------------------------------------------|
+
+
+Google-konto för att kunna logga in:
+- Användare: MovieMingleUser@gmail.com
+- Lösenord: Movie123456
+
+
+## Authors
+
+
+| [@Mercedesemiliea](https://github.com/Mercedesemiliea) | [@isabellesj](https://github.com/isabellesj) | [@Response201](https://github.com/Response201) |
+|------------------------------------------------|------------------------------------------------|------------------------------------------------|
+
+
