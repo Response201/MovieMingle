@@ -17,6 +17,12 @@ $font-title: "Anton", sans-serif;
   font-family: $font-copy;
   width: 100%;
 
+  &__container p {
+    margin: 0.5rem 0;
+    
+    width: 70%;
+    margin: 0 auto;
+  }
   &__container {
     display: flex;
     flex-wrap: wrap;
@@ -27,6 +33,7 @@ $font-title: "Anton", sans-serif;
     padding: 0 2rem;
     border-top: 1px solid $color-gray;
     border-bottom: 1px solid $color-gray;
+    
 
 
   }
@@ -42,8 +49,12 @@ $font-title: "Anton", sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     font-weight: 300;
+    
     margin-bottom: 2rem;
+
     color: $color-off-white;
+
+
   }
 
   &__links {
@@ -71,23 +82,39 @@ $font-title: "Anton", sans-serif;
     &-links {
       display: flex;
       gap: 1rem;
+      cursor: pointer;
 
       a {
         color: $color-white;
         font-size: 1.5rem;
-        transition: color 0.3s;
-
-        &:hover {
-          color: $color-gray;
-        }
+   
       }
     }
   }
 
   &__contact {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      
+   
+    
+  display: flex;
+  flex-direction: column;
+
+ 
+
+
+
+   
+
+
     p {
       margin: 0.5rem 0;
     }
+  }
   }
 
   &__bottom {
