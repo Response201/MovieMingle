@@ -46,6 +46,20 @@ export const About = () => {
               cinema, we aim to provide our users with the best streaming
               experience.
             </p>
+            <h2 className="about-content__title">High-Quality Streaming</h2>
+            <p className="about-content__text">
+            We provide high-definition streaming to ensure you enjoy your movies and series in the best possible quality. Our platform supports multiple devices, so you can watch your favorite content on your TV, laptop, tablet, or smartphone.
+            </p>
+
+            <h2 className="about-content__title">Safe and Secure</h2>
+            <p className="about-content__text">
+            Your privacy and security are our top priorities. Movie Mingle uses state-of-the-art encryption technology to protect your personal information and payment details. Enjoy your movies with peace of mind, knowing that your data is safe with us.            </p>
+            
+            <h2 className="about-content__title">Join Us Today</h2>
+            <p className="about-content__text">
+           
+            Experience the magic of movies with Movie Mingle. Whether you're a casual viewer or a film buff, we have something for everyone. Sign up today and start exploring the world of cinema from the comfort of your home.            </p>
+
           </section>
           <section className="about-content__text-box">
             <h3 className="about-content__title">
