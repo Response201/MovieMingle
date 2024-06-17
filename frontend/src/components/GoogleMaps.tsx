@@ -44,7 +44,7 @@ export default function MapComponent(){
     if (marker && markerCluster) {
       markerCluster.clearMarkers();
       markerCluster.addMarker(
-        new window.google.maps.Marker({
+        new window.google.maps.marker.AdvancedMarkerElement({
           position: { lat: marker.lat, lng: marker.lng },
         })
       );

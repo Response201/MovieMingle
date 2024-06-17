@@ -71,6 +71,8 @@ export const About = () => {
               world. Our mission is to bring people together through the love of
               movies.
             </p>
+           
+
 
             <div className="map-container">
               <h2>Our Location</h2>
