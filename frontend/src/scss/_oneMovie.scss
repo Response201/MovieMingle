@@ -4,7 +4,21 @@
 .oneMovie__wrapper {
   position: relative;
 }
+ .arrow-back {
+  right: 10%;
+  top: 77%;
+  width: 25px;
+  height: 25px;
+ 
+  position: absolute;
+  @media (min-width: 768px) {
+ width: 40px; 
+ height: 40px;
+right:20%;
+top:20%;
 
+  }
+}
 .movie {
   font-family: "Montserrat", sans-serif;
 

@@ -5,6 +5,7 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import BackButton from "./BackArrow";
 
 const stripePromise = loadStripe(import.meta.env.VITE_TEST_VAR);
 
@@ -36,6 +37,7 @@ export const MoviePresentation = (props: IMovieProps) => {
             alt={props.movie.title}
           />
           <div className="movie__info-wrapper">
+            <BackButton/>
             <h3 className="movie__title-selected">{props.movie.title}</h3>
             <p className="movie__genre-selected">
               {props.movie.genre} | {props.movie.length} min
