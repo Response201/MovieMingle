@@ -125,16 +125,21 @@ app.post("/register", async (req, res) => {
     const { email, password, provider } = req.body;
     try {
         const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+
+
+        /* om användaren redan finns */
         if (result.rows.length >= 1) {
             return res.json("This username already exist, please try with a diffrent one");
         }
+
+        
         /* krypeterar användarens lösenord innan det sparas i databasen, google-användare får null  */
         let crypted = null;
         if(provider === 'default'){
          crypted = await bcrypt.hash(password, 12);
     }
 
-        const sql = `
+    const sql = `
     INSERT INTO users (email, password, provider)
      VALUES ($1, $2, $3)
     ON CONFLICT (email) DO NOTHING;
