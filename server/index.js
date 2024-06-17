@@ -42,7 +42,7 @@ app.post('/create-payment-intent', async (req, res) => {
 });
 
 
-
+ 
 
 
 
@@ -134,6 +134,7 @@ app.get('/genre', async (req, res) => {
   });
 
 
+  /* Registrera användare */
 
 
 
@@ -232,6 +233,27 @@ const createReceiptTable = () => {
 };
 
 
+const createUserTable = () => {
+    const sql = `
+        CREATE TABLE IF NOT EXISTS users (
+        id INT NOT NULL,
+            email VARCHAR(100) NOT NULL,
+            password VARCHAR(100) NOT NULL,
+            provider VARCHAR(100) NOT NULL
+        )
+    `;
+
+    pool.query(sql, (error) => {
+        if (error) {
+            console.error('fel');
+        }
+    });
+};
+
+
+
+
+
 /* 
  const insertMovies = async (movies) => {
   const sql = `
@@ -274,8 +296,8 @@ insertMovies(movies);
 
 createMoviesTable(); */
 createReceiptTable();
-
+createUserTable();
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
-});
+}); 
