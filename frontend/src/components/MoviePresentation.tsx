@@ -37,7 +37,7 @@ export const MoviePresentation = (props: IMovieProps) => {
             alt={props.movie.title}
           />
           <div className="movie__info-wrapper">
-            <BackButton/>
+            <BackButton />
             <h3 className="movie__title-selected">{props.movie.title}</h3>
             <p className="movie__genre-selected">
               {props.movie.genre} | {props.movie.length} min
@@ -47,6 +47,7 @@ export const MoviePresentation = (props: IMovieProps) => {
               <>
                 <button
                   className="movie__button-rent"
+                  id="button-click"
                   onClick={() => setShowPayment(true)}
                 >
                   Rent: {props.movie.price} kr
