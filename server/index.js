@@ -140,10 +140,12 @@ app.post("/register", async (req, res) => {
 
 
 app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, provider } = req.body;
+    
+/* provider gör så att google användare inte kan logga in via denna endpoint */
 try {
     const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-    if (result.rows.length >= 1) {
+    if (result.rows.length >= 1 && provider === "default") {
         const check = await bcrypt.compareSync(password, result.rows[0].password);
 if(check){
     res.json("Log in successful!");
