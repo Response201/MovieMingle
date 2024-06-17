@@ -6,7 +6,7 @@
 }
  .arrow-back {
   right: 10%;
-  top: 77%;
+  top: 80%;
   width: 25px;
   height: 25px;
  
@@ -23,14 +23,20 @@ top:20%;
   font-family: "Montserrat", sans-serif;
 
   background: linear-gradient(to bottom, rgb(52, 50, 50), #000000);
+  @media (min-width: 768px) {
+    
+  }
+
 
   &__info-wrapper {
     display: flex;
     flex-direction: column;
+
+  
   }
 
   &__image-selected {
-    margin-top: 30px;
+    margin-top: 80px;
     height: 50vh;
 
     @include m.devices(desktop) {
