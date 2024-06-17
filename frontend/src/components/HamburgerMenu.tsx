@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
-
+import Login from "./login";
 import { useGlobalContext } from "../contexts/GlobalContext";
 
 const HamburgerMenu = () => {
@@ -33,7 +33,7 @@ const HamburgerMenu = () => {
         </Link>
       ))}
 
-     
+     <Login/>
     </Menu>
   );
 };
