@@ -115,6 +115,11 @@ app.get('/genre', async (req, res) => {
 
 /* Användar flöde */
 
+app.get("/users", async (req, res) => {
+    const result = await pool.query('SELECT * FROM users ');
+        res.json(result.rows);
+
+})
 
 app.post("/register", async (req, res) => {
     const { email, password, provider } = req.body;
@@ -123,8 +128,12 @@ app.post("/register", async (req, res) => {
         if (result.rows.length >= 1) {
             return res.json("This username already exist, please try with a diffrent one");
         }
-        /* krypeterar användarens lösenord innan det sparas i databasen */
-        const crypted = await bcrypt.hash(password, 12);
+        /* krypeterar användarens lösenord innan det sparas i databasen, google-användare får null  */
+        let crypted = null;
+        if(provider === 'default'){
+         crypted = await bcrypt.hash(password, 12);
+    }
+
         const sql = `
     INSERT INTO users (email, password, provider)
      VALUES ($1, $2, $3)
@@ -140,19 +149,19 @@ app.post("/register", async (req, res) => {
 
 
 app.post("/login", async (req, res) => {
-    const { email, password, provider } = req.body;
-    
-/* provider gör så att google användare inte kan logga in via denna endpoint */
+    const { email, password } = req.body;
+
+/*lösenordet är null för google-användare -> bcrypt(check) ger false -> dessa användare kan inte logga in via endpointen */
 try {
     const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-    if (result.rows.length >= 1 && provider === "default") {
+    if (result.rows.length >= 1 ) {
         const check = await bcrypt.compareSync(password, result.rows[0].password);
 if(check){
     res.json("Log in successful!");
-}else{
-    res.json('Something went wrong');
 }
-    }
+ else{
+        res.json('Something went wrong');
+    } }
 } catch (error) {
     res.json('Something went wrong');
 }
@@ -191,8 +200,6 @@ app.post('/makereceipt', async (req, res) => {
         res.json({ error: 'Something went wrong' });
     }
 });
-
-
 
 
 
@@ -245,7 +252,7 @@ const createUserTable = () => {
     const sql = `
         CREATE TABLE IF NOT EXISTS users (
             email VARCHAR(100) NOT NULL,
-            password VARCHAR(100) NOT NULL,
+            password VARCHAR(100) NULL,
             provider VARCHAR(100) NOT NULL,
             PRIMARY KEY (email)
         )
