@@ -129,7 +129,7 @@ app.post("/register", async (req, res) => {
 
         /* om användaren redan finns */
         if (result.rows.length >= 1) {
-            return res.json("This username already exist, please try with a diffrent one");
+            return res.json("Something went wrong");
         }
 
         
@@ -145,7 +145,7 @@ app.post("/register", async (req, res) => {
     ON CONFLICT (email) DO NOTHING;
   `;
         await pool.query(sql, [email, crypted, provider]);
-        res.json("registration successful!" );
+        res.json("Registration successful!" );
     } catch (error) {
         res.json('Something went wrong');
     }
