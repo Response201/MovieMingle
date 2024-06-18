@@ -35,6 +35,7 @@ const navigate = useNavigate()
         setUserSignedIn(response.credential);
         if (userObject.email) {
           FetchRegUser(userObject.email, null, "google");
+          navigate("/")
         }
       } else {
         Cookies.set("jwtToken", "");
