@@ -5,6 +5,8 @@ import { Home } from "./pages/Home";
 import { OneMovie } from "./pages/OneMovie";
 import { About } from "./pages/About";
 import { GenrePage } from "./pages/GenrePage";
+import { LoginPage } from "./pages/LoginPage";
+import { Register } from "./pages/Register";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,16 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        index: true,
+      },
+      {
+        path: "/loginpage",
+        element: <LoginPage />,
+        index: true,
+      },
+      {
+        path: "/Register",
+        element: <Register />,
         index: true,
       },
       {

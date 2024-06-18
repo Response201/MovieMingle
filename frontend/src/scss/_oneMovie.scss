@@ -3,6 +3,11 @@
 
 .oneMovie__wrapper {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, rgb(52, 50, 50), #000000);
 }
  .arrow-back {
   right: 10%;
@@ -22,7 +27,7 @@ top:20%;
 .movie {
   font-family: "Montserrat", sans-serif;
 
-  background: linear-gradient(to bottom, rgb(52, 50, 50), #000000);
+ 
   @media (min-width: 768px) {
     
   }
@@ -36,7 +41,7 @@ top:20%;
   }
 
   &__image-selected {
-    margin-top: 80px;
+  
     height: 50vh;
 
     @include m.devices(desktop) {
