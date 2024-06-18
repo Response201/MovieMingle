@@ -2,6 +2,7 @@ import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { useGlobalContext } from "../contexts/GlobalContext";
+import { FetchRegUser } from "../services/FetchRegUser";
 
 interface GoogleResponse {
   credential: string;
@@ -20,29 +21,6 @@ const loadScript = (src: string, onLoad: () => void) => {
   document.body.appendChild(script);
 };
 
-const sendGmailToDatabase = async (email: string) => {
-  try {
-    const response = await fetch("http://localhost:3000/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password: null, provider: "google" }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to save email");
-    }
-
-    const data = await response.json();
-    console.log("Server response:", data); // Logga serverns svar
-
-    console.log("Email saved successfully");
-  } catch (error) {
-    console.error("Error saving email:", error);
-  }
-};
-
 export const Login = () => {
   const { userSignedIn, setUserSignedIn } = useGlobalContext();
 
@@ -55,8 +33,7 @@ export const Login = () => {
       if (userObject.exp && userObject.exp > current) {
         setUserSignedIn(response.credential);
         if (userObject.email) {
-          sendGmailToDatabase(userObject.email);
-          console.log("User email: ", userObject.email);
+          FetchRegUser(userObject.email, null, "google");
         }
       } else {
         Cookies.set("jwtToken", "");
