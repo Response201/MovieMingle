@@ -1,11 +1,11 @@
-import { jwtDecode } from "jwt-decode";
+
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { useGlobalContext } from "../contexts/GlobalContext";
-import { FetchRegUser } from "../services/FetchRegUser";
 import { useNavigate } from "react-router-dom";
 
-interface GoogleResponse {
+
+/* interface GoogleResponse {
   credential: string;
 }
 
@@ -20,11 +20,12 @@ const loadScript = (src: string, onLoad: () => void) => {
   script.async = true;
   script.onload = onLoad;
   document.body.appendChild(script);
-};
+}; */
 
 export const Login = () => {
   const { userSignedIn, setUserSignedIn } = useGlobalContext();
-const navigate = useNavigate()
+  const navigate = useNavigate()
+/* 
   useEffect(() => {
     function handleCallbackResponse(response: GoogleResponse) {
       const userObject: DecodedJWT = jwtDecode(response.credential);
@@ -62,7 +63,7 @@ const navigate = useNavigate()
         console.error('Element with id "signInGoogle" not found.');
       }
     });
-  }, [setUserSignedIn]);
+  }, [setUserSignedIn]); */
 
   useEffect(() => {
     const signInDiv = document.getElementById("signInDiv");
@@ -92,7 +93,7 @@ const navigate = useNavigate()
 
   return (
     <section className="loginOut">
-    {/*   <div id="signInGoogle"></div> */}
+
       <button onClick={() => handleSignIn()} id="signInDiv"> Sign In </button>
       <button onClick={() => handleSignOut()} id="signOutDiv">
      
