@@ -46,6 +46,12 @@ const Navigation = () => {
           </div>
           <div className="navigation__container">
             <ul className="navigation__links">
+            <li className="navigation__item">
+                <Link to="/LoginPage">Login</Link>
+              </li>
+              <li className="navigation__item">
+                <Link to="/Register">Register</Link>
+              </li>
               <li className="navigation__item">
                 <Link to="/">Home</Link>
               </li>
@@ -73,8 +79,12 @@ const Navigation = () => {
             </div>
             <Login />
           </div>
+          
         </nav>
+        
+    
       )}
+   
     </>
   );
 };
