@@ -166,7 +166,9 @@ if(check){
 }
  else{
         res.json('Something went wrong');
-    } }
+    } }  else{
+        res.json('Something went wrong');
+    } 
 } catch (error) {
     res.json('Something went wrong');
 }
