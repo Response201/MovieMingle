@@ -7,6 +7,11 @@ interface GoogleResponse {
   credential: string;
 }
 
+interface DecodedJWT {
+  email: string;
+  exp: number;
+}
+
 const loadScript = (src: string, onLoad: () => void) => {
   const script = document.createElement("script");
   script.src = src;
@@ -15,27 +20,48 @@ const loadScript = (src: string, onLoad: () => void) => {
   document.body.appendChild(script);
 };
 
+const sendGmailToDatabase = async (email: string) => {
+  try {
+    const response = await fetch("http://localhost:3000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password: null, provider: "google" }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to save email");
+    }
+
+    const data = await response.json();
+    console.log("Server response:", data); // Logga serverns svar
+
+    console.log("Email saved successfully");
+  } catch (error) {
+    console.error("Error saving email:", error);
+  }
+};
+
 export const Login = () => {
   const { userSignedIn, setUserSignedIn } = useGlobalContext();
 
-
   useEffect(() => {
-
-
     function handleCallbackResponse(response: GoogleResponse) {
-      const userObject = jwtDecode(response.credential);
+      const userObject: DecodedJWT = jwtDecode(response.credential);
       Cookies.set("jwtToken", response.credential, { expires: 1 / 24 });
       const current = Date.now() / 1000;
+
       if (userObject.exp && userObject.exp > current) {
         setUserSignedIn(response.credential);
+        if (userObject.email) {
+          sendGmailToDatabase(userObject.email);
+          console.log("User email: ", userObject.email);
+        }
       } else {
         Cookies.set("jwtToken", "");
       }
     }
-  
-
-
-
 
     loadScript("https://accounts.google.com/gsi/client", () => {
       // Initialize Google Accounts ID
