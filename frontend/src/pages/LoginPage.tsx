@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
+import { useGlobalContext } from '../contexts/GlobalContext';
+import { FetchLogin } from '../services/FetchLogin';
+import Cookies from 'js-cookie';
+
 export const LoginPage = () => {
-   
+  const {setUserSignedIn} = useGlobalContext();
         const [email, setEmail] = useState('');
         const [password, setPassword] = useState('');
+        const [message, setMessage] = useState('regerrge')
       
-        const handleLogin = (e: React.FormEvent) => {
+        const handleLogin = async (e: React.FormEvent) => {
           e.preventDefault();
-          
-          console.log('Email:', email);
-          console.log('Password:', password);
+     
+          const response:string = await FetchLogin(email, password);
+
+          if(response !== 'Something went wrong' ){
+            setUserSignedIn(email)
+            Cookies.set("jwtToken", email);
+          } else {
+            setMessage(response)
+            setTimeout(() => {
+              setMessage('')
+            }, 5000);
+
+          }
+       
         };
       
         return (
@@ -42,6 +58,7 @@ export const LoginPage = () => {
            
             <div className="login-form__link-container">
         <Link className="login-form__link" to="/register">Don't have an account? Register here</Link>
+        <p>{message}</p>
       </div>
             
           </div>

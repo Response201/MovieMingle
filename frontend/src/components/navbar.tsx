@@ -5,10 +5,11 @@ import HamburgerMenu from "./HamburgerMenu";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import FetchAllGenres from "../services/FetchAllGenres";
 import { Login } from "./login";
+import Cookies from "js-cookie";
 
 const Navigation = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const { genre, setGenre } = useGlobalContext();
+  const { genre, setGenre, userSignedIn, setUserSignedIn } = useGlobalContext();
 
   useEffect(() => {
     if (genre.length <= 0) {
@@ -21,6 +22,15 @@ const Navigation = () => {
       fetchData();
     }
   }, []);
+
+
+  const Logout = () => {
+    Cookies.set("jwtToken", "");
+    setUserSignedIn('')
+    console.log('hello', userSignedIn)
+    console.log(userSignedIn)
+
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,12 +56,14 @@ const Navigation = () => {
           </div>
           <div className="navigation__container">
             <ul className="navigation__links">
-            <li className="navigation__item">
+         
+              {userSignedIn === '' ? <> <li className="navigation__item">
                 <Link to="/LoginPage">Login</Link>
               </li>
               <li className="navigation__item">
                 <Link to="/Register">Register</Link>
-              </li>
+              </li> </> : <li className="navigation__item" onClick={Logout}>   <span>Logout</span> </li>}
+              
               <li className="navigation__item">
                 <Link to="/">Home</Link>
               </li>
