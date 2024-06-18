@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import { FetchRegUser } from "../services/FetchRegUser";
+import { useNavigate } from "react-router-dom";
 
 interface GoogleResponse {
   credential: string;
@@ -23,7 +24,7 @@ const loadScript = (src: string, onLoad: () => void) => {
 
 export const Login = () => {
   const { userSignedIn, setUserSignedIn } = useGlobalContext();
-
+const navigate = useNavigate()
   useEffect(() => {
     function handleCallbackResponse(response: GoogleResponse) {
       const userObject: DecodedJWT = jwtDecode(response.credential);
@@ -47,9 +48,9 @@ export const Login = () => {
         callback: handleCallbackResponse,
       });
 
-      const signInDiv = document.getElementById("signInDiv");
-      if (signInDiv) {
-        google.accounts.id.renderButton(signInDiv, {
+      const signInGoogle = document.getElementById("signInGoogle");
+      if (signInGoogle) {
+        google.accounts.id.renderButton(signInGoogle, {
           type: "standard",
           theme: "outline",
           size: "medium",
@@ -57,7 +58,7 @@ export const Login = () => {
           shape: "pill",
         });
       } else {
-        console.error('Element with id "signInDiv" not found.');
+        console.error('Element with id "signInGoogle" not found.');
       }
     });
   }, [setUserSignedIn]);
@@ -82,10 +83,18 @@ export const Login = () => {
     setUserSignedIn("");
   };
 
+  const handleSignIn = () => {
+   navigate("/LoginPage")
+  };
+
+
+
   return (
     <section className="loginOut">
-      <div id="signInDiv"></div>
+    {/*   <div id="signInGoogle"></div> */}
+      <button onClick={() => handleSignIn()} id="signInDiv"> Sign In </button>
       <button onClick={() => handleSignOut()} id="signOutDiv">
+     
         Logout
       </button>
     </section>

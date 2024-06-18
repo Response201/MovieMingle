@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
-
 import { useGlobalContext } from "../contexts/GlobalContext";
 import FetchAllGenres from "../services/FetchAllGenres";
 import { Login } from "./login";
-import Cookies from "js-cookie";
+
 
 const Navigation = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const { genre, setGenre, userSignedIn, setUserSignedIn } = useGlobalContext();
+  const { genre, setGenre,  } = useGlobalContext();
 
   useEffect(() => {
     if (genre.length <= 0) {
       const fetchData = async () => {
-        const hello = await FetchAllGenres();
+        const genre = await FetchAllGenres();
 
-        setGenre(hello);
+        setGenre(genre);
       };
 
       fetchData();
@@ -24,13 +23,6 @@ const Navigation = () => {
   }, []);
 
 
-  const Logout = () => {
-    Cookies.set("jwtToken", "");
-    setUserSignedIn('')
-    console.log('hello', userSignedIn)
-    console.log(userSignedIn)
-
-  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -57,12 +49,7 @@ const Navigation = () => {
           <div className="navigation__container">
             <ul className="navigation__links">
          
-              {userSignedIn === '' ? <> <li className="navigation__item">
-                <Link to="/LoginPage">Login</Link>
-              </li>
-              <li className="navigation__item">
-                <Link to="/Register">Register</Link>
-              </li> </> : <li className="navigation__item" onClick={Logout}>   <span>Logout</span> </li>}
+            
               
               <li className="navigation__item">
                 <Link to="/">Home</Link>

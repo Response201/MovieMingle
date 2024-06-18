@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../contexts/GlobalContext';
 import { FetchLogin } from '../services/FetchLogin';
 import Cookies from 'js-cookie';
+
+
+
+
+
+
+
+
+
 
 export const LoginPage = () => {
   const {setUserSignedIn} = useGlobalContext();
         const [email, setEmail] = useState('');
         const [password, setPassword] = useState('');
-        const [message, setMessage] = useState('regerrge')
-      
+        const [message, setMessage] = useState('')
+      const navigate = useNavigate()
+
+
+
         const handleLogin = async (e: React.FormEvent) => {
           e.preventDefault();
      
@@ -18,7 +30,8 @@ export const LoginPage = () => {
 
           if(response !== 'Something went wrong' ){
             setUserSignedIn(email)
-            Cookies.set("jwtToken", email);
+            Cookies.set("jwtToken", email, { expires: 1 / 24 });
+            navigate('/')
           } else {
             setMessage(response)
             setTimeout(() => {
@@ -60,7 +73,7 @@ export const LoginPage = () => {
         <Link className="login-form__link" to="/register">Don't have an account? Register here</Link>
         <p>{message}</p>
       </div>
-            
+      <div id="signInGoogle"></div>
           </div>
           
     );
