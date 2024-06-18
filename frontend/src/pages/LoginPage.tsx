@@ -44,7 +44,7 @@ export const LoginPage = () => {
      
           const response:string = await FetchLogin(email, password);
 
-          if(response !== 'Something went wrong' ){
+          if(response === 'Log in successful!' ){
             setUserSignedIn(email)
             Cookies.set("jwtToken", email, { expires: 1 / 24 });
             navigate('/')
