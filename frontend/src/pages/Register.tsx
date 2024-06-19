@@ -12,8 +12,8 @@ export const Register: React.FC = () => {
 
   const handleRegister = async(e: React.FormEvent) => {
     e.preventDefault();
-    
-  const response = await FetchRegUser(email, password, "default")
+   
+  const response = await FetchRegUser(email.toLocaleLowerCase(), password, "default")
 
  setMessage(response)
  setTimeout(() => {

@@ -123,6 +123,9 @@ app.get("/users", async (req, res) => {
 
 app.post("/createUser", async (req, res) => {
     const { email, password, provider } = req.body;
+
+
+
     try {
         const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
 
