@@ -30,9 +30,7 @@
 
 .movie {
   font-family: "Montserrat", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   &__info-wrapper {
     display: flex;
     flex-direction: column;
@@ -85,6 +83,9 @@
 
   @include m.devices(desktop) {
     height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
  
   }
 }
