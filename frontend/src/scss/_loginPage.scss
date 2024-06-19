@@ -7,14 +7,10 @@ $color-black: #000;
 $font-copy: "Montserrat", sans-serif;
 $font-title: "Anton", sans-serif;
 
-
-
-
 .login-container {
   min-height: 100vh;
   height: 100%;
-  
- width: 100%;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -25,11 +21,7 @@ $font-title: "Anton", sans-serif;
   line-height: 1.5;
   font-weight: 300;
   color: $color-off-white;
-  background: linear-gradient(to bottom,  #000000,#622b4f, );
-
-  
- 
-
+  background: linear-gradient(to bottom, #000000, #622b4f);
 }
 
 .login-title {
@@ -37,20 +29,18 @@ $font-title: "Anton", sans-serif;
   font-size: 4rem;
   color: $color-white;
   margin-bottom: 2rem;
-
-
 }
 
 .login-form {
-width: 70%;
-    @media (min-width: 768px) {
-  display: flex;
-  flex-direction: column;
-   
-  width: 100%;
-  max-width: 400px;
-  
-    }
+  width: 70%;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+  }
+
   &__group {
     margin-bottom: 1.5rem;
   }
@@ -60,7 +50,6 @@ width: 70%;
     font-size: 1rem;
     color: $color-white;
     margin-bottom: 0.5rem;
-    
   }
 
   &__input {
@@ -69,13 +58,12 @@ width: 70%;
     font-size: 1rem;
     border: 1px solid $color-gray;
     border-radius: 5px;
-   
-   color: #000;
+    color: #000;
   }
 
   &__button {
     width: 100%;
-    margin-left:2%;
+    margin-left: 2%;
     padding: 0.75rem;
     font-size: 1.25rem;
     font-weight: 400;
@@ -85,12 +73,10 @@ width: 70%;
     border-radius: 120px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  
+
     &:hover {
       background-color: $color-off-white;
     }
-
-    
   }
   &__link-container {
     display: flex;
@@ -107,8 +93,5 @@ width: 70%;
     &:hover {
       color: darken($color-white, 40%);
     }
-
+  }
 }
-  
-}
-

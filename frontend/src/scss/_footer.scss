@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
 
 $color-white: #fafafa;
 $color-off-white: #dfdfdf;
@@ -6,12 +6,10 @@ $color-gray: darken($color-white, 50%);
 $color-black: #000;
 $font-copy: "Montserrat", sans-serif;
 $font-title: "Anton", sans-serif;
-
-
-
+//flytta till variables?
 
 .footer {
-  background: linear-gradient(to bottom,  #000000,#622b4f);
+  background: linear-gradient(to bottom, #000000, #622b4f);
   color: $color-off-white;
   padding: 3rem 0;
   font-family: $font-copy;
@@ -19,7 +17,6 @@ $font-title: "Anton", sans-serif;
 
   &__container p {
     margin: 0.5rem 0;
-    
     width: 70%;
     margin: 0 auto;
   }
@@ -33,9 +30,6 @@ $font-title: "Anton", sans-serif;
     padding: 0 2rem;
     border-top: 1px solid $color-gray;
     border-bottom: 1px solid $color-gray;
-    
-
-
   }
 
   &__title {
@@ -49,12 +43,8 @@ $font-title: "Anton", sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     font-weight: 300;
-    
     margin-bottom: 2rem;
-
     color: $color-off-white;
-
-
   }
 
   &__links {
@@ -87,7 +77,6 @@ $font-title: "Anton", sans-serif;
       a {
         color: $color-white;
         font-size: 1.5rem;
-   
       }
     }
   }
@@ -98,30 +87,19 @@ $font-title: "Anton", sans-serif;
     width: 100%;
 
     @media (min-width: 768px) {
-      
-   
-    
-  display: flex;
-  flex-direction: column;
+      display: flex;
+      flex-direction: column;
 
- 
-
-
-
-   
-
-
-    p {
-      margin: 0.5rem 0;
+      p {
+        margin: 0.5rem 0;
+      }
     }
-  }
   }
 
   &__bottom {
     text-align: center;
     padding: 1rem 0;
     font-size: 0.9rem;
-   
     color: $color-off-white;
   }
 }
