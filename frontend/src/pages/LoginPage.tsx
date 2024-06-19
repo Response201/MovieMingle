@@ -30,7 +30,8 @@ export const LoginPage = () => {
 
 	const handleLogin = async (e: React.FormEvent) => {
 		e.preventDefault();
-		const response: string = await FetchLogin(email, password);
+
+		const response: string = await FetchLogin(email.toLocaleLowerCase(), password);
 		if (response === "Log in successful!") {
 			setUserSignedIn(email);
 			Cookies.set("jwtToken", email, { expires: 1 / 24 });
