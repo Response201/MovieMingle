@@ -18,7 +18,7 @@
   display: none;
   position: absolute;
 
-  @media (min-width: 768px) {
+  @include m.devices(desktop) {
     display: block;
     width: 40px;
     height: 40px;
@@ -29,10 +29,6 @@
 
 .movie {
   font-family: "Montserrat", sans-serif;
-
-  @media (min-width: 768px) {
-  }
-  //ta bort?
 
   &__info-wrapper {
     display: flex;

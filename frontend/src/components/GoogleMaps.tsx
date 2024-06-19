@@ -1,16 +1,15 @@
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import { useEffect, useRef, useState } from "react";
 
-
-
-
-export default function MapComponent(){
-  const [map, setMap] = useState<google.maps.Map>()
+export default function GoogleMaps() {
+  const [map, setMap] = useState<google.maps.Map>();
   const ref = useRef<HTMLDivElement>(null);
   const [markerCluster, setMarkerClusters] = useState<MarkerClusterer>();
-  const [marker, setMarker] = useState<{lat: number, lng: number} | undefined>();
+  const [marker, setMarker] = useState<
+    { lat: number; lng: number } | undefined
+  >();
 
-  const organizationLocation = { lat: 59.3327419, lng: 17.9798944};
+  const organizationLocation = { lat: 59.3327419, lng: 17.9798944 };
 
   useEffect(() => {
     if (ref.current && !map) {
@@ -21,7 +20,6 @@ export default function MapComponent(){
 
       setMap(newMap);
 
-     
       new window.google.maps.Marker({
         position: organizationLocation,
         map: newMap,
@@ -30,7 +28,7 @@ export default function MapComponent(){
     }
 
     if (map && !markerCluster) {
-      map.addListener('click', (e: google.maps.MapMouseEvent) => {
+      map.addListener("click", (e: google.maps.MapMouseEvent) => {
         if (e.latLng) {
           const { lat, lng } = e.latLng;
           setMarker({ lat: lat(), lng: lng() });
@@ -53,8 +51,10 @@ export default function MapComponent(){
 
   return (
     <>
-      <div ref={ref as any} style={{height: "20%", width: "100%", minHeight:"700px"}} ></div>
+      <div
+        ref={ref as any}
+        style={{ height: "20%", width: "100%", minHeight: "700px" }}
+      ></div>
     </>
-  )
+  );
 }
-

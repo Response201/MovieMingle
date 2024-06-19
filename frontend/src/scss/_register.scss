@@ -1,11 +1,6 @@
+@use "variables" as v;
+@use "_mixins" as m;
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
-
-$color-white: #fafafa;
-$color-off-white: #dfdfdf;
-$color-gray: darken($color-white, 50%);
-$color-black: #000;
-$font-copy: "Montserrat", sans-serif;
-$font-title: "Anton", sans-serif;
 
 .register-container {
   min-height: 100vh;
@@ -13,25 +8,25 @@ $font-title: "Anton", sans-serif;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: $font-copy;
+  font-family: v.$font-copy;
   line-height: 1.5;
   font-weight: 300;
-  color: $color-off-white;
+  color: v.$color-off-white;
   background: linear-gradient(to bottom, #000000, #622b4f);
   padding: 0 2rem;
 }
 
 .register-title {
-  font-family: $font-title;
+  font-family: v.$font-title;
   font-size: 4rem;
-  color: $color-white;
+  color: v.$color-white;
   margin-bottom: 2rem;
 }
 
 .register-form {
   width: 70%;
 
-  @media (min-width: 768px) {
+  @include m.devices(desktop) {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -45,7 +40,7 @@ $font-title: "Anton", sans-serif;
   &__label {
     display: block;
     font-size: 1rem;
-    color: $color-white;
+    color: v.$color-white;
     margin-bottom: 0.5rem;
   }
 
@@ -53,7 +48,7 @@ $font-title: "Anton", sans-serif;
     width: 100%;
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid $color-gray;
+    border: 1px solid v.$color-gray;
     border-radius: 5px;
     color: black;
   }
@@ -64,15 +59,15 @@ $font-title: "Anton", sans-serif;
     padding: 0.75rem;
     font-size: 1.25rem;
     font-weight: 400;
-    color: $color-black;
-    background-color: $color-white;
+    color: v.$color-black;
+    background-color: v.$color-white;
     border: none;
     border-radius: 120px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: $color-off-white;
+      background-color: v.$color-off-white;
     }
   }
   &__link-container {
@@ -82,12 +77,12 @@ $font-title: "Anton", sans-serif;
   }
 
   &__link {
-    color: $color-white;
+    color: v.$color-white;
     text-decoration: none;
     transition: color 0.2s ease;
 
     &:hover {
-      color: darken($color-white, 40%);
+      color: darken(v.$color-white, 40%);
     }
   }
 }

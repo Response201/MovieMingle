@@ -25,12 +25,12 @@ export const router = createBrowserRouter([
         index: true,
       },
       {
-        path: "/loginpage",
+        path: "/login",
         element: <LoginPage />,
         index: true,
       },
       {
-        path: "/Register",
+        path: "/register",
         element: <Register />,
         index: true,
       },
@@ -44,7 +44,6 @@ export const router = createBrowserRouter([
         element: <OneMovie />,
         index: true,
       },
-
     ],
   },
 ]);

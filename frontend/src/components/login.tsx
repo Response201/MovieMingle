@@ -1,15 +1,11 @@
-
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import { useNavigate } from "react-router-dom";
 
-
-
 export const Login = () => {
   const { userSignedIn, setUserSignedIn } = useGlobalContext();
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const signInDiv = document.getElementById("signInDiv");
@@ -32,17 +28,16 @@ export const Login = () => {
   };
 
   const handleSignIn = () => {
-   navigate("/LoginPage")
+    navigate("/login");
   };
-
-
 
   return (
     <section className="loginOut">
-
-      <button onClick={() => handleSignIn()} id="signInDiv"> Sign In </button>
+      <button onClick={() => handleSignIn()} id="signInDiv">
+        {" "}
+        Sign In{" "}
+      </button>
       <button onClick={() => handleSignOut()} id="signOutDiv">
-     
         Logout
       </button>
     </section>

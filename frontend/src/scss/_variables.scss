@@ -3,11 +3,14 @@ $secondary: rgb(124, 131, 128);
 $text-color: #111111;
 $text-color-ligth: #e8e8e8;
 
-
-
 $color-white: #fafafa;
 $color-off-white: #dfdfdf;
 $color-gray: darken($color-white, 50%);
 $color-black: #000;
 $font-copy: "Montserrat", sans-serif;
 $font-title: "Anton", sans-serif;
+
+$screen-lg: 920px;
+$screen-md: 760px;
+$screen-sm: 580px;
+$screen-xsm: 370px;
