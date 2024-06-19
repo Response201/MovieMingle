@@ -36,7 +36,7 @@ export default function GoogleMaps() {
       });
       setMarkerClusters(new MarkerClusterer({ map, markers: [] }));
     }
-  }, [map, markerCluster]);
+  }, [map, markerCluster, organizationLocation]);
 
   useEffect(() => {
     if (marker && markerCluster) {

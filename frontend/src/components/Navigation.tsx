@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import FetchAllGenres from "../services/FetchAllGenres";
-import { Login } from "./Login";
+import Login from "./Login";
+
 
 const Navigation = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
