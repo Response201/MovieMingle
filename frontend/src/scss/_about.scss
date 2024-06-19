@@ -1,57 +1,34 @@
+@use "_mixins" as m;
+@use "variables" as v;
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
 
-$color-white: #fafafa;
-$color-off-white: #dfdfdf;
-$color-gray: darken($color-white, 50%);
-$color-black: #000;
-$font-copy: "Montserrat", sans-serif;
-$font-title: "Anton", sans-serif;
-
-$screen-lg: 920px;
-$screen-md: 760px;
-$screen-sm: 580px;
-$screen-xsm: 370px;
-
-@mixin respond($screen-size) {
-  @media only screen and (max-width: $screen-size) {
-    @content;
-  }
-}
-
-
-
-
-
-
 .about-container {
-    min-height: 115vh;
-   
-    font-family: $font-copy;
-    
-    font-size: 1.5rem;
-    line-height: 1.5;
-    font-weight: 300;
-    color: $color-off-white;
-    background-color: $color-black;
-    font-size: 62.5%;
-  max-width: 120rem;
   margin: 0 auto;
   padding: 0 6rem 6rem 6rem;
+
+  font-family: v.$font-copy;
+  font-size: 62.5%;
+  font-weight: 300;
+  line-height: 1.5;
+  color: v.$color-off-white;
+  background-color: v.$color-black;
+
+  max-width: 120rem;
+  min-height: 115vh;
 }
 
 .about-container .nav {
   display: flex;
-  
   justify-content: space-between;
   align-items: center;
+
   text-align: left;
   padding: 8rem 0 6rem 0;
-  margin-left:-50%;
+  margin-left: -50%;
 
-  @media (min-width: 768px) {
+  @include m.devices(desktop) {
     padding-bottom: 2rem;
     margin-left: 0;
-   
   }
 
   &__list {
@@ -60,62 +37,56 @@ $screen-xsm: 370px;
     gap: 2em;
     list-style: none;
 
-  
-
-    @include respond($screen-sm) {
-       
+    @include m.respond(v.$screen-sm) {
       gap: 1.5rem;
     }
   }
 
   &__link {
     text-decoration: none;
-    color: $color-white;
+    color: v.$color-white;
     transition: color 0.2s ease;
 
     &:hover {
-      color: darken($color-white, 40%);
+      color: darken(v.$color-white, 40%);
     }
 
     &--active {
-      color: darken($color-white, 60%);
+      color: darken(v.$color-white, 60%);
 
       &:hover {
-        color: darken($color-white, 60%);
+        color: darken(v.$color-white, 60%);
       }
     }
   }
 
   &__copy {
-    @include respond($screen-sm) {
+    @include m.respond(v.$screen-sm) {
       display: none;
     }
   }
 }
 
 .page-title {
-     margin-top: 6rem;
-   text-align: end;
-    position: relative;
-    left:38%;
-    font-size: 4rem;
- font-family: $font-title;
+  margin-top: 6rem;
+  text-align: end;
+  position: relative;
+  left: 38%;
+  font-size: 4rem;
+  font-family: v.$font-title;
   text-transform: uppercase;
- letter-spacing: -0.4px;
+  letter-spacing: -0.4px;
   line-height: 5rem;
-  color: $color-white;
+  color: v.$color-white;
 
-  @media (min-width: 768px) {
-    margin-left:-12%;
-    margin-top:5rem;
-  margin-bottom: 8rem;
-  line-height: 16rem;
-  font-size: 14rem;
-  font-weight: 100;
-
- 
+  @include m.devices(desktop) {
+    margin-left: -12%;
+    margin-top: 5rem;
+    margin-bottom: 8rem;
+    line-height: 16rem;
+    font-size: 14rem;
+    font-weight: 100;
   }
-
 }
 
 .about-content {
@@ -123,7 +94,7 @@ $screen-xsm: 370px;
   justify-content: space-between;
   align-items: flex-start;
 
-  @include respond($screen-md) {
+  @include m.respond(v.$screen-md) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
@@ -131,10 +102,10 @@ $screen-xsm: 370px;
 
   &__descriptor {
     width: 14%;
-    border-top: 1px solid $color-gray;
+    border-top: 1px solid v.$color-gray;
     padding-top: 4rem;
 
-    @include respond($screen-md) {
+    @include m.respond(v.$screen-md) {
       width: 100%;
       padding: 2rem 0;
       border-top: none;
@@ -142,7 +113,6 @@ $screen-xsm: 370px;
   }
 
   &__title {
-   
     font-size: 1.5rem;
     font-weight: 400;
   }
@@ -158,45 +128,38 @@ $screen-xsm: 370px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-   margin-right:5%;
+    margin-right: 5%;
     width: 60%;
-    border-top: 1px solid $color-gray;
-    border-bottom: 1px solid $color-gray;
+    border-top: 1px solid v.$color-gray;
+    border-bottom: 1px solid v.$color-gray;
     padding: 4rem 0;
 
-  
-
-    @include respond($screen-lg) {
+    @include m.respond(v.$screen-lg) {
       width: 100%;
     }
 
-    @include respond($screen-md) {
+    @include m.respond(v.$screen-md) {
       width: 100%;
       padding: 2rem 0;
     }
 
-    @include respond($screen-sm) {
+    @include m.respond(v.$screen-sm) {
       border-bottom: none;
     }
   }
 
-  
-
   .map-container {
-  
-width: 100%;
-height: 100%;
-    @media (min-width: 768px) {
-       width: 80%;
-       height: 100%;
-    
+    width: 100%;
+    height: 100%;
+
+    @include m.devices(desktop) {
+      width: 80%;
+      height: 100%;
     }
 
     h2 {
       margin-top: 0;
-      color: $color-white;
+      color: v.$color-white;
     }
-
-
   }
 }

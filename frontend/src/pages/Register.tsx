@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FetchRegUser } from '../services/FetchRegUser';
-
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { FetchRegUser } from "../services/FetchRegUser";
 
 export const Register: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('')
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleRegister = async(e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-   
-  const response = await FetchRegUser(email.toLocaleLowerCase(), password, "default")
 
- setMessage(response)
- setTimeout(() => {
-  setMessage('')
- }, 8000);
- 
+    const response = await FetchRegUser(
+      email.toLocaleLowerCase(),
+      password,
+      "default"
+    );
+
+    setMessage(response);
+    setTimeout(() => {
+      setMessage("");
+    }, 8000);
   };
 
   return (
@@ -27,7 +28,9 @@ export const Register: React.FC = () => {
       <h1 className="register-title">Register</h1>
       <form className="register-form" onSubmit={handleRegister}>
         <div className="register-form__group">
-          <label htmlFor="name" className="register-form__label">Name</label>
+          <label htmlFor="name" className="register-form__label">
+            Name
+          </label>
           <input
             type="text"
             id="name"
@@ -37,9 +40,11 @@ export const Register: React.FC = () => {
           />
         </div>
         <div className="register-form__group">
-          <label htmlFor="email" className="register-form__label">Email</label>
+          <label htmlFor="email" className="register-form__label">
+            Email
+          </label>
           <input
-          required
+            required
             type="email"
             id="email"
             className="register-form__input"
@@ -48,9 +53,11 @@ export const Register: React.FC = () => {
           />
         </div>
         <div className="register-form__group">
-          <label htmlFor="password" className="register-form__label">Password</label>
+          <label htmlFor="password" className="register-form__label">
+            Password
+          </label>
           <input
-          required
+            required
             type="password"
             id="password"
             className="register-form__input"
@@ -58,17 +65,17 @@ export const Register: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" className="register-form__button">Register</button>
+        <button type="submit" className="register-form__button">
+          Register
+        </button>
       </form>
-     
+
       <div className="login-form__link-container">
-        <Link className="login-form__link" to="/loginpage">Already have an account? Login here</Link>
+        <Link className="login-form__link" to="/login">
+          Already have an account? Login here
+        </Link>
         <p>{message}</p>
       </div>
-
-
-
-
     </div>
   );
 };

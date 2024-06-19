@@ -1,10 +1,10 @@
 import axios from "axios";
 import { Movie } from "../model/movie";
-interface Data{
-movies: Movie[];
-totalPages: number;
-
+interface Data {
+  movies: Movie[];
+  totalPages: number;
 }
+
 export const FetchMovies = async (page: number, size: number) => {
   try {
     const response = await axios.get<Data>(

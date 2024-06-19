@@ -4,47 +4,39 @@
 .oneMovie__wrapper {
   position: relative;
   min-height: 100vh;
- 
+
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to bottom, rgb(52, 50, 50), #000000);
 }
+
 .arrow-back {
   right: 10%;
   top: 80%;
   width: 25px;
   height: 25px;
- display: none;
+  display: none;
   position: absolute;
-  @media (min-width: 768px) {
-    display: block;
- width: 40px; 
- height: 40px;
-right:20%;
-top:20%;
 
+  @include m.devices(desktop) {
+    display: block;
+    width: 40px;
+    height: 40px;
+    right: 20%;
+    top: 20%;
   }
 }
+
 .movie {
   font-family: "Montserrat", sans-serif;
-
- width: 60%;
-  @media (min-width: 768px) {
-  
-  
-  }
-
 
   &__info-wrapper {
     display: flex;
     flex-direction: column;
-
-  
   }
 
   &__image-selected {
-  
     height: 50vh;
 
     @include m.devices(desktop) {

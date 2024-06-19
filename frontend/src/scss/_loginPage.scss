@@ -1,56 +1,41 @@
+@use "variables" as v;
+@use "_mixins" as m;
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
-
-$color-white: #fafafa;
-$color-off-white: #dfdfdf;
-$color-gray: darken($color-white, 50%);
-$color-black: #000;
-$font-copy: "Montserrat", sans-serif;
-$font-title: "Anton", sans-serif;
-
-
-
 
 .login-container {
   min-height: 100vh;
   height: 100%;
-  
- width: 100%;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: $font-copy;
+  font-family: v.$font-copy;
 
   line-height: 1.5;
   font-weight: 300;
-  color: $color-off-white;
-  background: linear-gradient(to bottom,  #000000,#622b4f, );
-
-  
- 
-
+  color: v.$color-off-white;
+  background: linear-gradient(to bottom, #000000, #622b4f);
 }
 
 .login-title {
-  font-family: $font-title;
+  font-family: v.$font-title;
   font-size: 4rem;
-  color: $color-white;
+  color: v.$color-white;
   margin-bottom: 2rem;
-
-
 }
 
 .login-form {
-width: 70%;
-    @media (min-width: 768px) {
-  display: flex;
-  flex-direction: column;
-   
-  width: 100%;
-  max-width: 400px;
-  
-    }
+  width: 70%;
+
+  @include m.devices(desktop) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+  }
+
   &__group {
     margin-bottom: 1.5rem;
   }
@@ -58,39 +43,35 @@ width: 70%;
   &__label {
     display: block;
     font-size: 1rem;
-    color: $color-white;
+    color: v.$color-white;
     margin-bottom: 0.5rem;
-    
   }
 
   &__input {
     width: 100%;
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid $color-gray;
+    border: 1px solid v.$color-gray;
     border-radius: 5px;
-   
-   color: #000;
+    color: #000;
   }
 
   &__button {
     width: 100%;
-    margin-left:2%;
+    margin-left: 2%;
     padding: 0.75rem;
     font-size: 1.25rem;
     font-weight: 400;
-    color: $color-black;
-    background-color: $color-white;
+    color: v.$color-black;
+    background-color: v.$color-white;
     border: none;
     border-radius: 120px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: $color-off-white;
-    }
 
-    
+    &:hover {
+      background-color: v.$color-off-white;
+    }
   }
   &__link-container {
     display: flex;
@@ -100,15 +81,12 @@ width: 70%;
   }
 
   &__link {
-    color: $color-white;
+    color: v.$color-white;
     text-decoration: none;
     transition: color 0.2s ease;
 
     &:hover {
-      color: darken($color-white, 40%);
+      color: darken(v.$color-white, 40%);
     }
-
+  }
 }
-  
-}
-

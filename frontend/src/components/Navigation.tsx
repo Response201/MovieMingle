@@ -3,12 +3,11 @@ import { useEffect, useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import FetchAllGenres from "../services/FetchAllGenres";
-import { Login } from "./login";
-
+import { Login } from "./Login";
 
 const Navigation = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const { genre, setGenre,  } = useGlobalContext();
+  const { genre, setGenre } = useGlobalContext();
 
   useEffect(() => {
     if (genre.length <= 0) {
@@ -21,8 +20,6 @@ const Navigation = () => {
       fetchData();
     }
   }, []);
-
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,9 +45,6 @@ const Navigation = () => {
           </div>
           <div className="navigation__container">
             <ul className="navigation__links">
-         
-            
-              
               <li className="navigation__item">
                 <Link to="/">Home</Link>
               </li>
@@ -78,12 +72,8 @@ const Navigation = () => {
             </div>
             <Login />
           </div>
-          
         </nav>
-        
-    
       )}
-   
     </>
   );
 };

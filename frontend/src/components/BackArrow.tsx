@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import"../scss/_oneMovie.scss";
-const BackButton: React.FC = () => {
+import "../scss/_oneMovie.scss";
+
+const BackArrow: React.FC = () => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -24,4 +25,4 @@ const BackButton: React.FC = () => {
   );
 };
 
-export default BackButton;
+export default BackArrow;
