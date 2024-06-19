@@ -26,10 +26,11 @@ export const LoginPage = () => {
 	const [message, setMessage] = useState("");
 	const navigate = useNavigate();
 
+
+
 	const handleLogin = async (e: React.FormEvent) => {
 		e.preventDefault();
 		const response: string = await FetchLogin(email, password);
-
 		if (response === "Log in successful!") {
 			setUserSignedIn(email);
 			Cookies.set("jwtToken", email, { expires: 1 / 24 });
@@ -50,12 +51,7 @@ export const LoginPage = () => {
 				const userObject: DecodedJWT = jwtDecode(response.credential);
 				const current = Date.now() / 1000;
 				if (userObject.exp && userObject.exp > current && userObject.email) {
-
-
 					const responseReg = await FetchRegUser(userObject.email, null, "google");
-          console.log(response)
-
-
 					if (responseReg !== "Registration successful!") {
             setUserSignedIn(response.credential);
 						Cookies.set("jwtToken", response.credential, { expires: 1 / 24 });
@@ -90,6 +86,7 @@ export const LoginPage = () => {
 			}
 		});
 	}, [setUserSignedIn, navigate]);
+
 	return (
 		<div className="login-container">
 			<h1 className="login-title">Log In</h1>

@@ -117,7 +117,7 @@ app.get('/genre', async (req, res) => {
 
 app.get("/users", async (req, res) => {
     const result = await pool.query('SELECT * FROM users ');
-        res.json(result.rows);
+    res.json(result.rows);
 
 })
 
@@ -132,20 +132,19 @@ app.post("/register", async (req, res) => {
             return res.json("Something went wrong");
         }
 
-        
         /* krypeterar användarens lösenord innan det sparas i databasen, google-användare får null  */
         let crypted = null;
-        if(provider === 'default'){
-         crypted = await bcrypt.hash(password, 12);
-    }
+        if (provider === 'default') {
+            crypted = await bcrypt.hash(password, 12);
+        }
 
-    const sql = `
+        const sql = `
     INSERT INTO users (email, password, provider)
      VALUES ($1, $2, $3)
     ON CONFLICT (email) DO NOTHING;
   `;
         await pool.query(sql, [email, crypted, provider]);
-        res.json("Registration successful!" );
+        res.json("Registration successful!");
     } catch (error) {
         res.json('Something went wrong');
     }
@@ -155,24 +154,23 @@ app.post("/register", async (req, res) => {
 
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
-
-/*lösenordet är null för google-användare -> bcrypt(check) ger false -> dessa användare kan inte logga in via endpointen */
-try {
-    const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-    if (result.rows.length >= 1 && result.rows[0].provider === "default") {
-        const check = await bcrypt.compareSync(password, result.rows[0].password);
-if(check){
-    res.json("Log in successful!");
-}
- else{
+    try {
+        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        if (result.rows.length >= 1 && result.rows[0].provider === "default") {
+            const check = await bcrypt.compareSync(password, result.rows[0].password);
+            if (check) {
+                res.json("Log in successful!");
+            }
+            else {
+                res.json('Something went wrong');
+            }
+        } else {
+            res.json('Something went wrong');
+        }
+    } catch (error) {
         res.json('Something went wrong');
-    } }  else{
-        res.json('Something went wrong');
-    } 
-} catch (error) {
-    res.json('Something went wrong');
-}
-     })
+    }
+})
 
 
 
@@ -183,7 +181,7 @@ if(check){
 
 
 
-/* spara köp i sql-server - Viktigt glöm inte att skicka med body: user, movies i post-anropet */
+/* spara köp i sql-server - Viktigt glöm inte att skicka med body: user, movies i post-anropet !!! användsinte men ska möjligen implementeras !!! */
 app.post('/makereceipt', async (req, res) => {
     const { user, movies } = req.body;
     if (!user || !movies || !Array.isArray(movies)) {
@@ -239,6 +237,10 @@ app.get('/seeReceipt', async (req, res) => {
         res.json({ error: 'Something went wrong' });
     }
 });
+
+
+
+
 /* skapar tabeller - all funktion föe movies-tabellen är utmarkerad eftersom alla aktuella filmer redan finns i databasen */
 const createReceiptTable = () => {
     const sql = `
@@ -255,6 +257,8 @@ const createReceiptTable = () => {
         }
     });
 };
+
+/* Användar tabell */
 const createUserTable = () => {
     const sql = `
         CREATE TABLE IF NOT EXISTS users (
