@@ -5,19 +5,13 @@ import { useGlobalContext } from '../contexts/GlobalContext';
 import { FetchLogin } from '../services/FetchLogin';
 import Cookies from 'js-cookie';
 import { FetchRegUser } from '../services/FetchRegUser';
-
-
-
-
 interface GoogleResponse {
   credential: string;
 }
-
 interface DecodedJWT {
   email: string;
   exp: number;
 }
-
 const loadScript = (src: string, onLoad: () => void) => {
   const script = document.createElement("script");
   script.src = src;
@@ -25,11 +19,6 @@ const loadScript = (src: string, onLoad: () => void) => {
   script.onload = onLoad;
   document.body.appendChild(script);
 };
-
-
-
-
-
 export const LoginPage = () => {
   const {setUserSignedIn} = useGlobalContext();
         const [email, setEmail] = useState('');
@@ -41,55 +30,57 @@ export const LoginPage = () => {
 
         const handleLogin = async (e: React.FormEvent) => {
           e.preventDefault();
-     
           const response:string = await FetchLogin(email, password);
-
           if(response === 'Log in successful!' ){
             setUserSignedIn(email)
             Cookies.set("jwtToken", email, { expires: 1 / 24 });
             navigate('/')
           } else {
+            Cookies.remove("jwtToken");
+            setUserSignedIn("");
             setMessage(response)
             setTimeout(() => {
               setMessage('')
             }, 5000);
-
           }
-       
         };
 
 
 
   useEffect(() => {
-    function handleCallbackResponse(response: GoogleResponse) {
+   async function handleCallbackResponse(response: GoogleResponse) {
+
+
       try {
         const userObject: DecodedJWT = jwtDecode(response.credential);
         const current = Date.now() / 1000;
-  
         if (userObject.exp && userObject.exp > current && userObject.email) {
-      
+
+ const response = await FetchRegUser(userObject.email, null, "google");
+         if(response !== 'Registration successful!'){
           Cookies.set("jwtToken", response.credential, { expires: 1 / 24 });
           setUserSignedIn(response.credential);
-          FetchRegUser(userObject.email, null, "google");
           navigate("/");
+        }else{
+         
+setMessage(`{response}, du kan nu logga in`)
+        }
         } else {
-          throw new Error("Invalid token or token expired");
+        
+          setMessage(`{response}`)
         }
       } catch (error) {
-       
+        setMessage('somthing went wrong')
         console.error("Login failed:", error);
         Cookies.remove("jwtToken");
       }
        }
-    
-
     loadScript("https://accounts.google.com/gsi/client", () => {
       // Initialize Google Accounts ID
       google.accounts.id.initialize({
         client_id: import.meta.env.VITE_CLIENTID,
         callback: handleCallbackResponse,
       });
-
       const signInGoogle = document.getElementById("signInGoogle");
       if (signInGoogle) {
         google.accounts.id.renderButton(signInGoogle, {
@@ -104,18 +95,6 @@ export const LoginPage = () => {
       }
     });
   }, [setUserSignedIn, navigate]);
-
-
-
-
-
-
-
-
-
-
-
-      
         return (
           <div className="login-container">
             <h1 className="login-title">Log In</h1>
@@ -142,14 +121,12 @@ export const LoginPage = () => {
               </div>
               <button type="submit" className="login-form__button">Log In</button>
             </form>
-           
             <div className="login-form__link-container">
         <Link className="login-form__link" to="/register">Don't have an account? Register here</Link>
         <p>{message}</p>
       </div>
       <div id="signInGoogle"></div>
           </div>
-          
     );
     };
     export default LoginPage;

@@ -159,7 +159,7 @@ app.post("/login", async (req, res) => {
 /*lösenordet är null för google-användare -> bcrypt(check) ger false -> dessa användare kan inte logga in via endpointen */
 try {
     const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-    if (result.rows.length >= 1 ) {
+    if (result.rows.length >= 1 && result.rows[0].provider === "default") {
         const check = await bcrypt.compareSync(password, result.rows[0].password);
 if(check){
     res.json("Log in successful!");
