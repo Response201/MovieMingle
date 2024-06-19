@@ -121,7 +121,7 @@ app.get("/users", async (req, res) => {
 
 })
 
-app.post("/register", async (req, res) => {
+app.post("/createUser", async (req, res) => {
     const { email, password, provider } = req.body;
     try {
         const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
@@ -177,11 +177,8 @@ app.post("/login", async (req, res) => {
 
 
 
-
-
-
-
 /* spara köp i sql-server - Viktigt glöm inte att skicka med body: user, movies i post-anropet !!! användsinte men ska möjligen implementeras !!! */
+
 app.post('/makereceipt', async (req, res) => {
     const { user, movies } = req.body;
     if (!user || !movies || !Array.isArray(movies)) {
@@ -224,6 +221,10 @@ app.get('/receipts', async (req, res) => {
         res.json({ error: 'Something went wrong' });
     }
 });
+
+
+
+
 app.get('/seeReceipt', async (req, res) => {
     const { username, timedate } = req.body;
     try {
@@ -242,6 +243,7 @@ app.get('/seeReceipt', async (req, res) => {
 
 
 /* skapar tabeller - all funktion föe movies-tabellen är utmarkerad eftersom alla aktuella filmer redan finns i databasen */
+
 const createReceiptTable = () => {
     const sql = `
         CREATE TABLE IF NOT EXISTS receipt (
