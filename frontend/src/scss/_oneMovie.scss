@@ -4,6 +4,7 @@
 .oneMovie__wrapper {
   position: relative;
   min-height: 100vh;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,9 +29,10 @@ top:20%;
 .movie {
   font-family: "Montserrat", sans-serif;
 
- 
+ width: 60%;
   @media (min-width: 768px) {
-    
+  
+  
   }
 
 
