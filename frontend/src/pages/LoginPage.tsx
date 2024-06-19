@@ -62,20 +62,26 @@ export const LoginPage = () => {
 
   useEffect(() => {
     function handleCallbackResponse(response: GoogleResponse) {
-      const userObject: DecodedJWT = jwtDecode(response.credential);
-      Cookies.set("jwtToken", response.credential, { expires: 1 / 24 });
-      const current = Date.now() / 1000;
-
-      if (userObject.exp && userObject.exp > current) {
-        setUserSignedIn(response.credential);
-        if (userObject.email) {
+      try {
+        const userObject: DecodedJWT = jwtDecode(response.credential);
+        const current = Date.now() / 1000;
+  
+        if (userObject.exp && userObject.exp > current && userObject.email) {
+      
+          Cookies.set("jwtToken", response.credential, { expires: 1 / 24 });
+          setUserSignedIn(response.credential);
           FetchRegUser(userObject.email, null, "google");
-          navigate("/")
+          navigate("/");
+        } else {
+          throw new Error("Invalid token or token expired");
         }
-      } else {
-        Cookies.set("jwtToken", "");
+      } catch (error) {
+       
+        console.error("Login failed:", error);
+        Cookies.remove("jwtToken");
       }
-    }
+       }
+    
 
     loadScript("https://accounts.google.com/gsi/client", () => {
       // Initialize Google Accounts ID
