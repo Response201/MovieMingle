@@ -40,12 +40,13 @@ const GoogleSignIn = ({ label, setMessage, clientId }: GoogleSignInProps) => {
         const current = Date.now() / 1000;
         if (userObject.exp && userObject.exp > current && userObject.email) {
           const responseReg = await FetchRegUser(userObject.email, null, "google", label);
-          if (responseReg !== "Registration successful!" || responseReg !== "wrong page" && label !== "signup_with" ) {
+          
+          if (responseReg === "Something went wrong" && label === "signin" ) {
             setUserSignedIn(userObject.email);
             Cookies.set("jwtToken", userObject.email, { expires: 1 / 24 });
               navigate("/")
         
-          } else if( responseReg === "Registration successful!" && label !== "signin" ) {
+          } else if( responseReg === "Registration successful!" && label === "signup_with" ) {
             setMessage("Registration successful!");
             setTimeout(() => {
               navigate("/login")

@@ -150,13 +150,14 @@ app.post("/createUser", async (req, res) => {
     ON CONFLICT (email) DO NOTHING;
   `;
         await pool.query(sql, [email, crypted, provider]);
-        res.json("Registration successful!");}else{
+        res.json("Registration successful!");}
+        else{
 
             res.json("wrong page")
 
         }
     } catch (error) {
-        res.json('Something went wrong');
+        res.json('Error');
     }
 });
 
