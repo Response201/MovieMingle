@@ -40,7 +40,7 @@ const GoogleSignIn = ({ label, setMessage, clientId }: GoogleSignInProps) => {
         const current = Date.now() / 1000;
         if (userObject.exp && userObject.exp > current && userObject.email) {
           const responseReg = await FetchRegUser(userObject.email, null, "google");
-          if (responseReg !== "Registration successful!") {
+          if (responseReg !== "Registration successful!" && label !== "signup_with" ) {
             setUserSignedIn(userObject.email);
             Cookies.set("jwtToken", userObject.email, { expires: 1 / 24 });
               navigate("/")
