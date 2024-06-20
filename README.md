@@ -15,7 +15,14 @@ We have collaborated on a group project to create a web application that allows 
 |------------------------------------------------|
 
 
-Log in with your gmail account or this test account:
+## Start project
+
+- npm i
+- npm run dev
+  
+## Log in 
+
+Log in with your gmail or this test account:
 - User: MovieMingleUser@gmail.com
 - Password: Movie123456
 
@@ -27,8 +34,6 @@ Log in with your gmail account or this test account:
 |------------------------------------------------|------------------------------------------------|------------------------------------------------|
 
 
-## Start project
 
-- npm i
-- npm run dev
+![Logo](https://i.ibb.co/bKcVJS9/Sk-rmklipp.png)
 
