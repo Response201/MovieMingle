@@ -279,7 +279,27 @@ const createUserTable = () => {
         }
     });
 };
+
+
+
+
 /* 
+
+
+
+const dropUserTable = () => {
+    const sql = `DROP TABLE IF EXISTS users`;
+    pool.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log('Table dropped');
+
+    });
+};
+
+dropUserTable()
+
+
+
  const insertMovies = async (movies) => {
   const sql = `
     INSERT INTO movies (id, title, description, length, image, price, genre)
