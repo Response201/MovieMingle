@@ -50,6 +50,8 @@ const GoogleSignIn = ({ label, setMessage, clientId }: GoogleSignInProps) => {
             setTimeout(() => {
               navigate("/login")
             }, 5000);
+          }else {
+            setMessage("Something went wrong");
           }
         } else {
           setMessage("Something went wrong");
