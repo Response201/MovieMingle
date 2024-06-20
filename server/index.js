@@ -131,7 +131,7 @@ app.post("/createUser", async (req, res) => {
 
 
         /* om användaren redan finns */
-        if (result.rows.length >= 1 || label !== "signup_with") {
+        if (result.rows.length >= 1 ) {
             return res.json("Something went wrong");
         }
 
@@ -141,13 +141,20 @@ app.post("/createUser", async (req, res) => {
             crypted = await bcrypt.hash(password, 12);
         }
 
+
+        if( label === "signup_with"){
+
         const sql = `
     INSERT INTO users (email, password, provider)
      VALUES ($1, $2, $3)
     ON CONFLICT (email) DO NOTHING;
   `;
         await pool.query(sql, [email, crypted, provider]);
-        res.json("Registration successful!");
+        res.json("Registration successful!");}else{
+
+            res.json("wrong page")
+
+        }
     } catch (error) {
         res.json('Something went wrong');
     }
