@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FetchRegUser } from "../services/FetchRegUser";
 import GoogleSignIn from "../components/GoogleSignIn";
 
@@ -8,7 +8,7 @@ export const Register: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-
+const navigate = useNavigate();
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -22,7 +22,8 @@ export const Register: React.FC = () => {
     setMessage(response);
     setTimeout(() => {
       setMessage("");
-    }, 8000);
+      navigate("/login") 
+    }, 5000);
   };
 
   return (
