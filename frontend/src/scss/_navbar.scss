@@ -5,7 +5,7 @@
 .navigation {
   display: none;
 
-  @include m.devices(desktop) {
+  @include m.devices(tablet) {
     position: fixed;
     display: flex;
     height: 30px;
@@ -68,7 +68,7 @@
 .responsive-nav {
   width: 100%;
 
-  @include m.devices(desktop) {
+  @include m.devices(tablet) {
     display: none;
   }
 }
@@ -83,7 +83,7 @@
   flex-direction: column;
   justify-content: space-around;
 
-  @include m.devices(desktop) {
+  @include m.devices(tablet) {
     display: none;
   }
 }

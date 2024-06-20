@@ -4,9 +4,6 @@ import { useGlobalContext } from "../contexts/GlobalContext";
 import { useState } from "react";
 import Login from "./Login";
 
-
-
-
 const HamburgerMenu = () => {
   const { genre } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +48,9 @@ const HamburgerMenu = () => {
         </Link>
       ))}
 
-    <Login />
+      <div onClick={closeMenu}>
+        <Login />
+      </div>
     </Menu>
   );
 };
