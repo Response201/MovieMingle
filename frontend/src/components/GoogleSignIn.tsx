@@ -45,7 +45,7 @@ const GoogleSignIn = ({ label, setMessage, clientId }: GoogleSignInProps) => {
             Cookies.set("jwtToken", userObject.email, { expires: 1 / 24 });
               navigate("/")
         
-          } else {
+          } else if( responseReg === "Registration successful!" && label === "signup_with") {
             setMessage("Registration successful!");
             setTimeout(() => {
               navigate("/login")
