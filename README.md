@@ -15,9 +15,9 @@ We have collaborated on a group project to create a web application that allows 
 |------------------------------------------------|
 
 
-Google-konto för att kunna logga in:
-- Användare: MovieMingleUser@gmail.com
-- Lösenord: Movie123456
+Log in with your gmail account or this test account:
+- User: MovieMingleUser@gmail.com
+- Password: Movie123456
 
 
 ## Authors
@@ -26,4 +26,9 @@ Google-konto för att kunna logga in:
 | [@Mercedesemiliea](https://github.com/Mercedesemiliea) | [@isabellesj](https://github.com/isabellesj) | [@Response201](https://github.com/Response201) |
 |------------------------------------------------|------------------------------------------------|------------------------------------------------|
 
+
+## Start project
+|------------------------------------------------|
+npm i
+npm run dev
 
