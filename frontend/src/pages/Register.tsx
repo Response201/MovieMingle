@@ -15,7 +15,8 @@ export const Register: React.FC = () => {
     const response = await FetchRegUser(
       email.toLocaleLowerCase(),
       password,
-      "default"
+      "default",
+      "signup_with"
     );
 
     setMessage(response);

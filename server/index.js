@@ -122,7 +122,7 @@ app.get("/users", async (req, res) => {
 })
 
 app.post("/createUser", async (req, res) => {
-    const { email, password, provider } = req.body;
+    const { email, password, provider, label } = req.body;
 
 
 
@@ -131,7 +131,7 @@ app.post("/createUser", async (req, res) => {
 
 
         /* om användaren redan finns */
-        if (result.rows.length >= 1) {
+        if (result.rows.length >= 1 || label !== "signup_with") {
             return res.json("Something went wrong");
         }
 
