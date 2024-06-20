@@ -1,24 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { jwtDecode } from "jwt-decode";
+import React, { useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import { FetchLogin } from "../services/FetchLogin";
 import Cookies from "js-cookie";
-import { FetchRegUser } from "../services/FetchRegUser";
-interface GoogleResponse {
-  credential: string;
-}
-interface DecodedJWT {
-  email: string;
-  exp: number;
-}
-const loadScript = (src: string, onLoad: () => void) => {
-  const script = document.createElement("script");
-  script.src = src;
-  script.async = true;
-  script.onload = onLoad;
-  document.body.appendChild(script);
-};
+import GoogleSignIn from "../components/GoogleSignIn";
+
 export const LoginPage = () => {
   const { setUserSignedIn } = useGlobalContext();
   const [email, setEmail] = useState("");
@@ -48,51 +35,12 @@ export const LoginPage = () => {
     }
   };
 
-  useEffect(() => {
-    async function handleCallbackResponse(response: GoogleResponse) {
-      try {
-        const userObject: DecodedJWT = jwtDecode(response.credential);
-        const current = Date.now() / 1000;
-        if (userObject.exp && userObject.exp > current && userObject.email) {
-          const responseReg = await FetchRegUser(
-            userObject.email,
-            null,
-            "google"
-          );
-          if (responseReg !== "Registration successful!") {
-            setUserSignedIn(response.credential);
-            Cookies.set("jwtToken", response.credential, { expires: 1 / 24 });
-            navigate("/");
-          } else {
-            setMessage(`Registration successful!`);
-          }
-        } else {
-          setMessage("Something went wrong");
-        }
-      } catch (error) {
-        setMessage("Something went wrong");
-      }
-    }
 
-    loadScript("https://accounts.google.com/gsi/client", () => {
-      google.accounts.id.initialize({
-        client_id: import.meta.env.VITE_CLIENTID,
-        callback: handleCallbackResponse,
-      });
-      const signInGoogle = document.getElementById("signInGoogle");
-      if (signInGoogle) {
-        google.accounts.id.renderButton(signInGoogle, {
-          type: "standard",
-          theme: "outline",
-          size: "medium",
-          text: "signin",
-          shape: "pill",
-        });
-      } else {
-        console.error('Element with id "signInGoogle" not found.');
-      }
-    });
-  }, [setUserSignedIn, navigate]);
+
+
+
+
+
 
   return (
     <div className="login-container">
@@ -132,7 +80,11 @@ export const LoginPage = () => {
         </Link>
         <p>{message}</p>
       </div>
-      <div id="signInGoogle"></div>
+      <GoogleSignIn
+        label={"signin"}
+        clientId={import.meta.env.VITE_CLIENTID}
+        setMessage={setMessage}
+      />
     </div>
   );
 };

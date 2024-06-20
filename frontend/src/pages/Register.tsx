@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FetchRegUser } from "../services/FetchRegUser";
+import GoogleSignIn from "../components/GoogleSignIn";
 
 export const Register: React.FC = () => {
   const [name, setName] = useState("");
@@ -76,6 +77,15 @@ export const Register: React.FC = () => {
         </Link>
         <p>{message}</p>
       </div>
+
+      <GoogleSignIn
+        label={"signup_with"}
+        clientId={import.meta.env.VITE_CLIENTID}
+        setMessage={setMessage}
+      />
+
+
+
     </div>
   );
 };
