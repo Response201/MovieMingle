@@ -55,6 +55,15 @@ export const Home = () => {
   return (
     <>
       <div className="home-wrapper">
+        <div className="content">
+
+
+
+
+
+
+
+
         <div className="video-container">
           <video className="video-container__video" autoPlay muted loop>
             <source
@@ -85,9 +94,24 @@ export const Home = () => {
               </button>
             </div>
           </div>
+          </div>
+
+
+
+
+
+
         </div>
+
+
+        <div className="movie-container">
+
+
+
         <div className="scroll-icon" onClick={scrollToMovies}>
-          <svg
+
+
+        <svg
             className="arrow-down"
             width="40px"
             height="40px"
@@ -132,7 +156,9 @@ export const Home = () => {
           </svg>
         </div>
 
-        <div className="movie-container">
+
+
+
           <div className="pageSize">
             <p>Movies per page:</p>
             <div className="pageSize__container">
