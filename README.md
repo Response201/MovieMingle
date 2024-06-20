@@ -29,6 +29,6 @@ Log in with your gmail account or this test account:
 
 ## Start project
 
-npm i
-npm run dev
+- npm i
+- npm run dev
 
