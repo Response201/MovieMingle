@@ -132,6 +132,9 @@ app.post("/createUser", async (req, res) => {
 
         /* om användaren redan finns */
         if (result.rows.length >= 1 ) {
+            if(result.rows[0].provider === "default"){
+                return res.json("Something went wrong!");
+            }
             return res.json("Something went wrong");
         }
 
